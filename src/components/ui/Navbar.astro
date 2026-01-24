@@ -1,0 +1,72 @@
+<script is:inline>
+	let isActive = false;
+	const toggleDrop = () => {
+		if (!isActive) {
+			const d = document.getElementById("dropdown")
+			d.style.display = "none";
+			const dc = document.getElementById("dropdownContent")
+			dc.style.display = "flex"
+			isActive = true
+		} else {
+			const d = document.getElementById("dropdown")
+			d.style.display = "flex";
+			const dc = document.getElementById("dropdownContent")
+			dc.style.display = "none"
+			isActive = false
+		}
+	}
+</script>
+
+<div id="nav">
+	<h1>Tommy Hall</h1>
+	<div id="dropdown">
+		<a href="javascript:void(0)" onclick="toggleDrop()">X</a>
+	</div>
+	<div id="dropdownContent">
+		<nav id="links">
+			<a href="/cc">Contact</a>
+			<a href="/proj">Projects</a>
+			<a href="javascript:void(0)" onclick="toggleDrop()">X</a>
+		</nav>
+	</div>
+</div>
+
+<style>
+	h1 {
+		margin: 1rem;
+		padding: 1rem;
+	}
+    #nav { 
+		display: flex;
+		flex: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.bar {
+		display: block;
+		height: 1rem;
+		width: 2rem;
+		color: black;
+	}
+	#dropdown {
+		margin: 1rem;
+		padding: .5rem;
+	}
+	#dropdownContent {
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: none;
+	}
+	#links {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 1rem;
+		padding: .5rem;
+	}
+	a {
+		text-decoration: none;
+	}
+</style>

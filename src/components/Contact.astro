@@ -1,0 +1,61 @@
+---
+import Navbar from "./ui/Navbar.astro"
+---
+
+<div class="container">
+    <div
+      id="buttonSection"
+      class="flex flex-col justify-center items-center p-1 border-t-4 border-l-4 border-red-800 max-w-[25vh]"
+    >
+      <a
+        id="button"
+        class="contactbtn"
+        href="https://www.instagram.com/tj_hall04/"
+        target="_blank"
+        >Instagram</a
+      >
+      <a
+        id="button"
+        class="contactbtn"
+        href="https://github.com/TeejMcSteez"
+        target="_blank"
+        >GitHub</a
+      >
+      <a
+        id="button"
+        class="contactbtn"
+        href="https://www.linkedin.com/in/tommyhall047/"
+        target="_blank"
+        >LinkedIn</a
+      >
+      <a
+        id="button" 
+        class="contactbtn"
+        href="https://bsky.app/profile/teejmcsteez.bsky.social"
+        target="_blank"
+        >Bluesky</a>
+      <a id="backbutton" class="contactbtn" href="/"
+        ><button>Back</button></a
+      >
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #buttonSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30vh;
+        padding: 1rem;
+        border-left: 1rem;
+        border-color: red;
+        max-width: 25vh;
+    }
+</style>

@@ -1,0 +1,88 @@
+---
+import Navbar from "./ui/Navbar.astro"
+import Contact from "../assets/contact.svg"
+import Github from "../assets/Github.svg"
+---
+
+<div class="container">
+
+	<Navbar /> 
+
+	<div id="hero">
+		<div class="heroBlock" id="heroBlock1">
+			<p>
+          		Hello, I am currently a Student at UNCC.<br />Check out some of my
+          		<a href="projects.html" class="font-bold hover:invert-100"
+            	>projects</a
+          		>
+          		and tell me what I could do better!
+        	</p>
+		</div>
+		<div class="heroBlock" id="heroBlock2">
+			<p>
+          		This website is simple as I enjoy thing's simply working.<br />However,
+          		any issues or improvement's that could be made please contact me with
+          		any given method on this site.
+        	</p>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="icons" class="flex flex-row">
+			<a
+			class="hover:invert mr-2"
+			target="_blank"
+			href="mailto:teejmcsteez+website@gmail.com"
+			><Contact
+				id="contact"
+				height="15px"
+				width="30px"
+			/></Contact>
+		</div>
+		<p class="p-2 m-2 dark:invert">
+			Built with HTML/<a
+			target="_blank"
+			href="https://www.tailwindcss.com/"
+			class="hover:underline"
+			>Tailwindcss</a
+			>/JS - Hosted by Me with<a
+			target="_blank"
+			href="https://nginx.org/"
+			class="hover:underline"
+			>
+			NGINX</a
+			>
+			and<a
+			target="_blank"
+			href="https://www.cloudflare.com"
+			class="hover:underline"
+			>
+			Cloudflare</a
+			>
+		</p>
+	</div>
+
+</div>
+
+<style>
+	.container {
+		display: flex;
+		flex-direction: column;
+	}
+	#hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	#footer {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: end;
+		bottom: 0;
+		left: 50%; /* Moves the left edge of the div to the horizontal center */
+  		transform: translateX(-50%); 
+	}
+</style>
