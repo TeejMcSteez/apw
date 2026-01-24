@@ -58,4 +58,25 @@ import Navbar from "./ui/Navbar.astro"
         border-color: red;
         max-width: 25vh;
     }
+    .contactbtn {
+      margin: 1rem;
+      padding: .5rem;
+      text-decoration: none;
+      color: black;
+      background-color: #c4b5fd;
+      border-radius: 1rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      .contactbtn {
+        color: white;
+        background-color: #8b5cf6;
+      }
+      button {
+        color: white;
+      }
+    }
+    button {
+      border: none;
+      background: none;
+    }
 </style>
