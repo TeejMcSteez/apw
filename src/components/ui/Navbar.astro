@@ -113,6 +113,14 @@ import Layout from "../../layouts/Layout.astro"
 			filter: invert();
 		}
 	}
+	@media (prefers-color-scheme: light) {
+		#links>a {
+			color: white;
+		}
+		#links>a>svg {
+			filter: invert();
+		}
+	}
 	#closeIcon:hover {
 		scale: 125%;
 	}
