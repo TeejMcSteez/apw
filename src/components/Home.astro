@@ -1,65 +1,51 @@
 ---
-import Navbar from "./ui/Navbar.astro"
-import InfoIcon from "../assets/Contact.svg"
-import Layout from "../layouts/Layout.astro"
+import Navbar from "./ui/Navbar.astro";
+import InfoIcon from "../assets/Contact.svg";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
 	<div class="container">
-
-		<Navbar /> 
+		<Navbar />
 
 		<div id="hero">
 			<div class="heroBlock" id="heroBlock1">
 				<p>
-					Hello, I am currently a Student at UNCC.<br />Check out some of my
-					<a id="heroProjLink" href="/proj"
-					>projects</a
-					>
+					Hello, I am currently a Student at UNCC.<br />Check out some
+					of my
+					<a id="heroProjLink" href="/proj">projects</a>
 					and tell me what I could do better!
 				</p>
 			</div>
 			<div class="heroBlock" id="heroBlock2">
 				<p>
-					This website is simple as I enjoy thing's simply working.<br />However,
-					any issues or improvement's that could be made please contact me with
-					any given method on this site.
+					This website is simple as I enjoy thing's simply working.<br
+					/>However, any issues or improvement's that could be made
+					please contact me with any given method on this site.
 				</p>
 			</div>
 		</div>
 
 		<div id="footer">
 			<div id="icons">
-				<a
-				target="_blank"
-				href="mailto:teejmcsteez+website@gmail.com"
-					><InfoIcon
-						id="contact"
-						height="20px"
-						width="40px"
-					/>
+				<a target="_blank" href="mailto:teejmcsteez+website@gmail.com"
+					><InfoIcon id="contact" height="20px" width="40px" />
 				</a>
 			</div>
 			<p class="p-2 m-2">
-				Built with <a
-				target="_blank"
-				href="https://astro.build/"
-				>Astro</a
+				Built with <a target="_blank" href="https://astro.build/"
+					>Astro</a
 				> - Hosted by Me with <a
-				target="_blank"
-				href="https://nginx.org/"
+					target="_blank"
+					href="https://nginx.org/"
 				>
-				NGINX</a
+					NGINX</a
 				>
-				and <a
-				target="_blank"
-				href="https://www.cloudflare.com"
-				>
-				Cloudflare</a
+				and <a target="_blank" href="https://www.cloudflare.com">
+					Cloudflare</a
 				>
 			</p>
 		</div>
-
 	</div>
 </Layout>
 
@@ -81,8 +67,8 @@ import Layout from "../layouts/Layout.astro"
 	}
 	.heroBlock {
 		width: 50vw;
-		margin: .5rem;
-		padding: .5rem;
+		margin: 0.5rem;
+		padding: 0.5rem;
 		display: flex;
 		flex-direction: column;
 		align-content: center;
@@ -90,7 +76,7 @@ import Layout from "../layouts/Layout.astro"
 		text-align: center;
 		font-size: larger;
 	}
-	.heroBlock>p {
+	.heroBlock > p {
 		background-color: #3a3840;
 		padding: 2rem;
 		padding: 1rem;
@@ -119,7 +105,7 @@ import Layout from "../layouts/Layout.astro"
 		}
 	}
 	@media (prefers-color-scheme: light) {
-		.heroBlock>p {
+		.heroBlock > p {
 			color: white;
 		}
 	}

@@ -1,41 +1,76 @@
 ---
-import Layout from "../../layouts/Layout.astro"
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <script is:inline>
 	let isActive = false;
 	const toggleDrop = () => {
 		if (!isActive) {
-			const d = document.getElementById("dropdown")
+			const d = document.getElementById("dropdown");
 			d.style.display = "none";
-			const dc = document.getElementById("dropdownContent")
-			dc.style.display = "flex"
-			isActive = true
+			const dc = document.getElementById("dropdownContent");
+			dc.style.display = "flex";
+			isActive = true;
 		} else {
-			const d = document.getElementById("dropdown")
+			const d = document.getElementById("dropdown");
 			d.style.display = "flex";
-			const dc = document.getElementById("dropdownContent")
-			dc.style.display = "none"
-			isActive = false
+			const dc = document.getElementById("dropdownContent");
+			dc.style.display = "none";
+			isActive = false;
 		}
-	}
+	};
 </script>
 
 <Layout>
 	<div id="nav">
 		<h1>Tommy Hall</h1>
 		<div id="dropdown">
-		<a href="javascript:void(0)" onclick="toggleDrop()">		
-			<svg id="menuIcon" class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-		</a>
+			<a href="javascript:void(0)" onclick="toggleDrop()">
+				<svg
+					id="menuIcon"
+					class="icon"
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					><line x1="3" y1="12" x2="21" y2="12"></line><line
+						x1="3"
+						y1="6"
+						x2="21"
+						y2="6"></line><line x1="3" y1="18" x2="21" y2="18"
+					></line></svg
+				>
+			</a>
 		</div>
 		<div id="dropdownContent">
 			<nav id="links">
 				<a class="linkButton" href="/cc">Contact</a>
 				<a class="linkButton" href="/proj">Projects</a>
-			<a href="javascript:void(0)" onclick="toggleDrop()">			
-				<svg id="closeIcon" class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-			</a>
+				<a href="javascript:void(0)" onclick="toggleDrop()">
+					<svg
+						id="closeIcon"
+						class="icon"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><line x1="18" y1="6" x2="6" y2="18"></line><line
+							x1="6"
+							y1="6"
+							x2="18"
+							y2="18"></line></svg
+					>
+				</a>
 			</nav>
 		</div>
 	</div>
@@ -45,7 +80,7 @@ import Layout from "../../layouts/Layout.astro"
 		margin: 1rem;
 		padding: 1rem;
 	}
-    #nav { 
+	#nav {
 		display: flex;
 		flex: row;
 		align-items: center;
@@ -59,9 +94,9 @@ import Layout from "../../layouts/Layout.astro"
 	}
 	#dropdown {
 		margin: 1rem;
-		padding: .5rem;
+		padding: 0.5rem;
 	}
-	#dropdown>a:hover {
+	#dropdown > a:hover {
 		scale: 125%;
 	}
 	#dropdownContent {
@@ -78,24 +113,27 @@ import Layout from "../../layouts/Layout.astro"
 		margin: 1rem;
 		padding: 1rem;
 	}
-	#links>a {
-		margin: .5rem;
-		padding: .5rem;
+	#links > a {
+		margin: 0.5rem;
+		padding: 0.5rem;
 		background-color: #3a3840;
-		border-radius: .25rem;
+		border-radius: 0.25rem;
 		font-size: large;
 	}
-	#links>a:hover {
+	#links > a:hover {
 		scale: 125%;
 	}
-	#links>a:link,a:visited,a:hover,a:active {
+	#links > a:link,
+	a:visited,
+	a:hover,
+	a:active {
 		color: black;
 		text-decoration: none;
 	}
 	@media (prefers-color-scheme: dark) {
 		#dropdown {
 			margin: 1rem;
-			padding: .5rem;
+			padding: 0.5rem;
 		}
 		#dropdownContent {
 			position: absolute;
@@ -103,7 +141,10 @@ import Layout from "../../layouts/Layout.astro"
 			top: 0;
 			display: none;
 		}
-		#links>a:link,a:visited,a:hover,a:active {
+		#links > a:link,
+		a:visited,
+		a:hover,
+		a:active {
 			color: white;
 			text-decoration: none;
 		}
@@ -118,10 +159,10 @@ import Layout from "../../layouts/Layout.astro"
 		scale: 125%;
 	}
 	@media (prefers-color-scheme: light) {
-		#links>a {
+		#links > a {
 			color: white;
 		}
-		#links>a>svg {
+		#links > a > svg {
 			filter: invert();
 		}
 	}
@@ -129,8 +170,8 @@ import Layout from "../../layouts/Layout.astro"
 		scale: 125%;
 	}
 	.linkButton {
-		margin: .25rem;
-		padding: .25rem;
+		margin: 0.25rem;
+		padding: 0.25rem;
 	}
 	.icon {
 		display: block;
