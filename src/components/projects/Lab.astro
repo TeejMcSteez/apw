@@ -2,168 +2,176 @@
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<div class="homelab-container">
-  <div id="#homelab">
-    <h1 class="homelab-title">Personal Homelab</h1>
+<Layout>
+  <div class="homelab-container">
+    <div id="#homelab">
+      <h1 class="homelab-title">Personal Homelab</h1>
 
-    <div class="homelab-section">
-      <h2 class="homelab-subtitle">Services</h2>
+      <div class="homelab-section">
+        <h2 class="homelab-subtitle">Services</h2>
 
-      <ul class="homelab-list">
-        <li>
-          <a
-            class="homelab-link"
-            target="_blank"
-            href="https://www.home-assistant.io/">Home Assistant</a
-          >
-        </li>
-        <li>
-          <a
-            class="homelab-link"
-            target="_blank"
-            href="https://www.truenas.com/truenas-community-edition/"
-            >TrueNAS Scale</a
-          >
-        </li>
-        <li>
-          <a class="homelab-link" target="_blank" href="https://nginx.org/"
-            >NGINX Reverse Proxy + Web Server</a
-          >
-        </li>
-        <li>
-          <a class="homelab-link" target="_blank" href="https://n8n.io/">N8N</a>
-        </li>
-        <li>
-          <a
-            class="homelab-link"
-            target="_blank"
-            href="https://github.com/AdguardTeam/AdGuardHome">AdGuard Home</a
-          >
-        </li>
-        <li>
-          <a class="homelab-link" target="_blank" href="https://frigate.video/"
-            >Frigate</a
-          >
-        </li>
-        <li>
-          <a class="homelab-link" target="_blank" href="https://jellyfin.org/"
-            >Jellyfin</a
-          >
-        </li>
-        <li>
-          <a
-            class="homelab-link"
-            target="_blank"
-            href="https://github.com/TeejMcSteez/goUp">GoUp</a
-          >
-        </li>
-      </ul>
+        <ul class="homelab-list">
+          <li>
+            <a
+              class="homelab-link"
+              target="_blank"
+              href="https://www.home-assistant.io/">Home Assistant</a
+            >
+          </li>
+          <li>
+            <a
+              class="homelab-link"
+              target="_blank"
+              href="https://www.truenas.com/truenas-community-edition/"
+              >TrueNAS Scale</a
+            >
+          </li>
+          <li>
+            <a class="homelab-link" target="_blank" href="https://nginx.org/"
+              >NGINX Reverse Proxy + Web Server</a
+            >
+          </li>
+          <li>
+            <a class="homelab-link" target="_blank" href="https://n8n.io/"
+              >N8N</a
+            >
+          </li>
+          <li>
+            <a
+              class="homelab-link"
+              target="_blank"
+              href="https://github.com/AdguardTeam/AdGuardHome">AdGuard Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="homelab-link"
+              target="_blank"
+              href="https://frigate.video/">Frigate</a
+            >
+          </li>
+          <li>
+            <a class="homelab-link" target="_blank" href="https://jellyfin.org/"
+              >Jellyfin</a
+            >
+          </li>
+          <li>
+            <a
+              class="homelab-link"
+              target="_blank"
+              href="https://github.com/TeejMcSteez/goUp">GoUp</a
+            >
+          </li>
+        </ul>
 
-      <p class="homelab-description">
-        All of this runs on a single node Proxmox server with most of the
-        services being docker images running on a Debian VM or directly on
-        Debian host
-        <br />
-        Services that are images themselves like Truenas Scale and Home Assistant
-        OS are mounted directly to a Proxmox VM disk
-        <br />
-        Backups happen everynight to an offsite (grandpa's house) server which runs
-        Proxmox Backup Server connected via Tailscale controlled with my Headscale
-        control plane
-        <br />
-        Their is an issue such that if Headscale is not up and running I cannot access
-        the server but for security reasons I am okay with this
-      </p>
+        <p class="homelab-description">
+          All of this runs on a single node Proxmox server with most of the
+          services being docker images running on a Debian VM or directly on
+          Debian host
+          <br />
+          Services that are images themselves like Truenas Scale and Home Assistant
+          OS are mounted directly to a Proxmox VM disk
+          <br />
+          Backups happen everynight to an offsite (grandpa's house) server which runs
+          Proxmox Backup Server connected via Tailscale controlled with my Headscale
+          control plane
+          <br />
+          Their is an issue such that if Headscale is not up and running I cannot
+          access the server but for security reasons I am okay with this
+        </p>
 
-      <h2 class="homelab-subtitle homelab-subtitle-center">Server Hardware</h2>
+        <h2 class="homelab-subtitle homelab-subtitle-center">
+          Server Hardware
+        </h2>
 
-      <div id="#homelabHardwareTable" class="homelab-table-container">
-        <table class="homelab-table">
-          <thead>
-            <tr>
-              <th class="homelab-table-header">Name</th>
-              <th class="homelab-table-header">Component</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">ASUS Z790-V Prime AX</td>
-              <td class="homelab-table-cell">Motherboard</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell"
-                >Intel Core i5-12400 (6-Core/12-Thread)</td
-              >
-              <td class="homelab-table-cell">CPU</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell"
-                >Corsair Vengeance DDR5 6000mhz (128GB@4000mhz)</td
-              >
-              <td class="homelab-table-cell">RAM</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">Samsung 990 EVO Plus (2TB)</td>
-              <td class="homelab-table-cell">Boot Drive</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">Hard Drive (2TB)</td>
-              <td class="homelab-table-cell">HDD</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell"
-                >Corsair RM750 750 Watt 80 Plus Gold</td
-              >
-              <td class="homelab-table-cell">PSU</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">Zotac RTX 3080</td>
-              <td class="homelab-table-cell">GPU (AI)</td>
-            </tr>
-          </tbody>
-        </table>
+        <div id="#homelabHardwareTable" class="homelab-table-container">
+          <table class="homelab-table">
+            <thead>
+              <tr>
+                <th class="homelab-table-header">Name</th>
+                <th class="homelab-table-header">Component</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">ASUS Z790-V Prime AX</td>
+                <td class="homelab-table-cell">Motherboard</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell"
+                  >Intel Core i5-12400 (6-Core/12-Thread)</td
+                >
+                <td class="homelab-table-cell">CPU</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell"
+                  >Corsair Vengeance DDR5 6000mhz (128GB@4000mhz)</td
+                >
+                <td class="homelab-table-cell">RAM</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">Samsung 990 EVO Plus (2TB)</td>
+                <td class="homelab-table-cell">Boot Drive</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">Hard Drive (2TB)</td>
+                <td class="homelab-table-cell">HDD</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell"
+                  >Corsair RM750 750 Watt 80 Plus Gold</td
+                >
+                <td class="homelab-table-cell">PSU</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">Zotac RTX 3080</td>
+                <td class="homelab-table-cell">GPU (AI)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="homelab-subtitle homelab-subtitle-center">
+          Backup Server Hardware
+        </h2>
+        <div id="#homelabHardwareTable" class="homelab-table-container">
+          <table class="homelab-table">
+            <thead>
+              <tr>
+                <th class="homelab-table-header">Name</th>
+                <th class="homelab-table-header">Component</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">ASUS Prime B365M-A</td>
+                <td class="homelab-table-cell">Motherboard</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">Intel 7400</td>
+                <td class="homelab-table-cell">CPU</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">Corasir Vengeance LPX</td>
+                <td class="homelab-table-cell">RAM</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">WD Black 1TB NVME M.2 SSD</td>
+                <td class="homelab-table-cell">Boot Drive</td>
+              </tr>
+              <tr class="homelab-table-row">
+                <td class="homelab-table-cell">Seagate 3.5" 5400RPM 8TB HDD</td>
+                <td class="homelab-table-cell">Mass Storage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <a class="homelab-back-button" href="/proj">Back</a>
       </div>
-
-      <h2 class="homelab-subtitle homelab-subtitle-center">
-        Backup Server Hardware
-      </h2>
-      <div id="#homelabHardwareTable" class="homelab-table-container">
-        <table class="homelab-table">
-          <thead>
-            <tr>
-              <th class="homelab-table-header">Name</th>
-              <th class="homelab-table-header">Component</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">ASUS Prime B365M-A</td>
-              <td class="homelab-table-cell">Motherboard</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">Intel 7400</td>
-              <td class="homelab-table-cell">CPU</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">Corasir Vengeance LPX</td>
-              <td class="homelab-table-cell">RAM</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">WD Black 1TB NVME M.2 SSD</td>
-              <td class="homelab-table-cell">Boot Drive</td>
-            </tr>
-            <tr class="homelab-table-row">
-              <td class="homelab-table-cell">Seagate 3.5" 5400RPM 8TB HDD</td>
-              <td class="homelab-table-cell">Mass Storage</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <a class="homelab-back-button" href="/proj">Back</a>
     </div>
   </div>
-</div>
+</Layout>
 
 <style>
   .homelab-container {
