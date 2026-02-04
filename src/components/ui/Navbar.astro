@@ -96,6 +96,9 @@ import Layout from "../../layouts/Layout.astro";
 		margin: 1rem;
 		padding: 0.5rem;
 	}
+	#dropdown > a {
+		transition: var(--button-animation-transition);
+	}
 	#dropdown > a:hover {
 		scale: 125%;
 	}
@@ -122,6 +125,7 @@ import Layout from "../../layouts/Layout.astro";
 		background-color: #3a3840;
 		border-radius: 0.25rem;
 		font-size: large;
+		transition: var(--button-animation-transition);
 	}
 	#links > a:hover {
 		scale: 125%;
@@ -159,6 +163,9 @@ import Layout from "../../layouts/Layout.astro";
 			filter: invert();
 		}
 	}
+	#menuIcon {
+		transition: var(--button-animation-transition);
+	}
 	#menuIcon:hover {
 		scale: 125%;
 	}
@@ -169,6 +176,9 @@ import Layout from "../../layouts/Layout.astro";
 		#links > a > svg {
 			filter: invert();
 		}
+	}
+	#closeIcon {
+		transition: var(--button-animation-transition);
 	}
 	#closeIcon:hover {
 		scale: 125%;
