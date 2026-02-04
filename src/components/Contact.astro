@@ -48,6 +48,13 @@
     border-left: 1rem;
     border-color: red;
     max-width: 25vh;
+    background-color: var(--button-group-background-color-light);
+    border-radius: 1rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    #buttonSection {
+      background-color: var(--button-group-background-color-dark);
+    }
   }
   #buttonSection > a {
     font-size: larger;
