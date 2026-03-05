@@ -32,7 +32,7 @@ import Layout from "../layouts/Layout.astro";
 					><InfoIcon id="contact" height="20px" width="40px" />
 				</a>
 			</div>
-			<p class="p-2 m-2">
+			<p id="footer-text">
 				Built with <a target="_blank" href="https://astro.build/"
 					>Astro</a
 				> - Hosted by Me with <a
@@ -98,6 +98,11 @@ import Layout from "../layouts/Layout.astro";
 		padding: 1rem;
 		margin-top: auto;
 		width: 100%;
+		box-sizing: border-box;
+	}
+	#footer-text {
+		margin: 0.5rem;
+		padding: 0.5rem;
 	}
 	#footer a {
 		color: white;
