@@ -7,14 +7,20 @@ import Layout from "../../layouts/Layout.astro";
         <div id="#salonWebsite" class="salon-content">
             <h1 class="salon-title">Salon Website</h1>
             <p class="salon-description">
-                The website above was built for my mothers growing salon
-                business it show's clients her work as well as providing contact
+                The website below was built for my mother's growing salon
+                business. It shows clients her work as well as providing contact
                 and policy information.
             </p>
             <div id="#salonWebsiteLiveDemo" class="salon-video-wrapper">
                 <iframe src="https://www.maryheathermelton.com/" frameborder="0"
                 ></iframe>
             </div>
+            <a
+                class="salon-site-link"
+                href="https://www.maryheathermelton.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Visit the live site &rarr;</a>
             <a class="salon-back-button" href="/proj">Back</a>
         </div>
     </div>
@@ -55,22 +61,40 @@ import Layout from "../../layouts/Layout.astro";
     }
 
     .salon-video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* pb-[56.25%] for 16:9 aspect ratio */
-        height: 400px;
-        width: 100%; /* w-full */
-        padding: 0.5rem; /* p-2 */
-        margin: 0.5rem; /* m-2 */
-        margin-top: 1rem; /* my-4 */
-        margin-bottom: 1rem; /* my-4 */
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
     }
 
     .salon-video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
+        display: block;
+    }
+
+    .salon-site-link {
+        font-size: 0.9rem;
+        color: #3b82f6;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+    }
+
+    .salon-site-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .salon-site-link {
+            color: #93c5fd;
+        }
+
+        .salon-video-wrapper {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+        }
     }
 
     .salon-back-button {
