@@ -78,17 +78,20 @@ import Layout from "../../layouts/Layout.astro";
                     All of this runs on a single node Proxmox server with most
                     of the services being docker images running on a Debian VM
                     or directly on Debian host
-                    <br />
-                    Services that are images themselves like Truenas Scale and Home
-                    Assistant OS are mounted directly to a Proxmox VM disk
-                    <br />
-                    Backups happen everynight to an offsite (grandpa's house) server
-                    which runs Proxmox Backup Server connected via Tailscale controlled
-                    with my Headscale control plane
-                    <br />
-                    Their is an issue such that if Headscale is not up and running
-                    I cannot access the server but for security reasons I am okay
-                    with this
+                </p>
+                <p class="homelab-description">
+                    Services that are images themselves like Truenas Scale and
+                    Home Assistant OS are mounted directly to a Proxmox VM disk
+                </p>
+                <p class="homelab-description">
+                    Backups happen everynight to an offsite (grandpa's house)
+                    server which runs Proxmox Backup Server connected via
+                    Tailscale controlled with my Headscale control plane
+                </p>
+                <p class="homelab-description">
+                    Their is an issue such that if Headscale is not up and
+                    running I cannot access the server but for security reasons
+                    I am okay with this
                 </p>
 
                 <h2 class="homelab-subtitle homelab-subtitle-center">
@@ -281,7 +284,7 @@ import Layout from "../../layouts/Layout.astro";
 
     .homelab-description {
         text-align: left;
-        margin: 1.25rem; /* m-5 */
+        margin: 0.5rem;
         padding: 0.5rem; /* p-2 */
         max-width: 36rem; /* max-w-xl */
         letter-spacing: 0.025em; /* tracking-wide */
