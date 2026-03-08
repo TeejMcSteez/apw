@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <div class="goup-container">
+        <div id="#goup">
+            <h2>GoUp</h2>
+
+            <div class="goup-section">
+                <p class="goup-ptag">
+                    GoUp is a server monitor I made so I could have a simple UI
+                    with some basic analysis for all of my homelab services
+                </p>
+                <p class="goup-ptag">
+                    It is made with Go for the backend and React for the
+                    frontend built into rendered HTML + assets before being
+                    embedded into the executable
+                </p>
+                <p class="goup-ptag">
+                    It operates off a configuration file in the YAML format, it
+                    currently has the option to specify what the name of the
+                    file is with the default name being <code>services.yml</code
+                    >
+                </p>
+                <p class="goup-ptag">
+                    The configuration file is also checked when the program is
+                    running and if changes are detected from the start the
+                    program will hot reload the configuration file and in memory
+                    configuration derived from the file
+                </p>
+                <h3>An Example Configuration File</h3>
+                <pre><code>db_path: ./database.db
+db_max_size: 4kb
+persist_db: true
+services:
+  adguard:
+    url: http://adguard.com/
+  frigate:
+    url: http://frigate.com/
+  jellyfin:
+    url: http://jellyfin.com/
+  truenas_scale:
+    url: http://truenas-scale.com/
+    api_url: http://truenas-scale.metrics-server.com/
+    api_key: your_key
+    valid_responses: 200, 304
+triggers:
+  mqtt:
+    mqtt_broker: null
+    mqtt_user: null
+    mqtt_key: null
+  webhook:
+    webhook_url: null
+    webhook_key: null
+    custom_message: null
+    backoff: null</code></pre>
+            </div>
+
+            <div class="goup-section"></div>
+        </div>
+    </div>
+</Layout>
+
+<style></style>
