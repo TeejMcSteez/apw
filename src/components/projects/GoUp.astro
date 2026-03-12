@@ -1,11 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import analytics from "../../../public/goUp_analytics.png";
+import landing from "../../../public/goUp_landing.png";
+import services from "../../../public/goUp_services.png";
+import settings from "../../../public/goUp_settings.png";
 ---
 
 <Layout>
     <div class="goup-container">
         <div id="#goup">
-            <h2>GoUp</h2>
+            <h1 class="goup-title">GoUp</h1>
 
             <div class="goup-section">
                 <p class="goup-ptag">
@@ -14,14 +18,14 @@ import Layout from "../../layouts/Layout.astro";
                 </p>
                 <p class="goup-ptag">
                     It is made with Go for the backend and React for the
-                    frontend built into rendered HTML + assets before being
+                    frontend rendered into HTML + static assets before being
                     embedded into the executable
                 </p>
                 <p class="goup-ptag">
                     It operates off a configuration file in the YAML format, it
                     currently has the option to specify what the name of the
-                    file is with the default name being <code>services.yml</code
-                    >
+                    file is via command line arguments with the default name
+                    being <code>services.yml</code>
                 </p>
                 <p class="goup-ptag">
                     The configuration file is also checked when the program is
@@ -29,8 +33,9 @@ import Layout from "../../layouts/Layout.astro";
                     program will hot reload the configuration file and in memory
                     configuration derived from the file
                 </p>
-                <h3>An Example Configuration File</h3>
-                <pre><code>db_path: ./database.db
+                <h3 class="goup-subtitle">An Example Configuration File</h3>
+                <pre
+                    class="goup-pre"><code>db_path: ./database.db
 db_max_size: 4kb
 persist_db: true
 services:
@@ -57,9 +62,240 @@ triggers:
     backoff: null</code></pre>
             </div>
 
-            <div class="goup-section"></div>
+            <div class="goup-section">
+                <p class="goup-ptag">
+                    Because of the Go concurrency model it allows the program to
+                    handle heavy IO operations like fetch requests and writing
+                    to the SQLite database with relative ease while serving HTTP
+                    requests
+                </p>
+                <p class="goup-ptag">
+                    The program is light-weight enough to run on something as
+                    small as a Raspberry Pi with 2GB RAM Also, since the entire
+                    program is a pure Go executable no shared system libraries
+                    or external dependencies are required
+                </p>
+                <p class="goup-ptag">
+                    The current drawbacks are that it has no built in HTTPS so
+                    if one wants to parse information from HTTP requests they
+                    must first route it through a reverse proxy to downgrade the
+                    HTTPS request to HTTP There is also no built in
+                    authentication as I did not want to to maintain
+                    authentication solutions and/or force the users (if any)
+                    into my authentication so it is built to run on LAN or
+                    trusted networks
+                </p>
+                <a href="#" id="openImagesButton" class="goup-images-button">See Images &#9660;</a>
+                <div
+                    id="goup-images"
+                    style="visibility: hidden; display: none;"
+                >
+                    <img
+                        class="goup-image"
+                        src={landing.src}
+                        alt="landing page image"
+                    />
+                    <img
+                        class="goup-image"
+                        src={services.src}
+                        alt="services page image"
+                    />
+                    <img
+                        class="goup-image"
+                        src={analytics.src}
+                        alt="analytics page image"
+                    />
+                    <img
+                        class="goup-image"
+                        src={settings.src}
+                        alt="settings page image"
+                    />
+                </div>
+                <a
+                    class="goup-source-link"
+                    href="https://github.com/TeejMcSteez/goUp"
+                    target="_blank"
+                    rel="noopener noreferrer">View source on GitHub &rarr;</a
+                >
+            </div>
+            <a class="goup-back-button" href="/proj">Back</a>
         </div>
     </div>
 </Layout>
 
-<style></style>
+<script>
+    function openImages() {
+        const images = document.getElementById("goup-images");
+        const button = document.getElementById("openImagesButton");
+        if (images?.style.visibility == "hidden") {
+            images.style.visibility = "visible";
+            images.style.display = "flex";
+            images.style.flexDirection = "column";
+            if (button) button.textContent = "Hide Images ▲";
+        } else {
+            images!!.style.visibility = "hidden";
+            images!!.style.display = "none";
+            if (button) button.textContent = "See Images ▼";
+        }
+    }
+
+    document
+        .getElementById("openImagesButton")
+        ?.addEventListener("click", openImages);
+</script>
+
+<style>
+    .goup-container {
+        max-width: 48rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .goup-title {
+        text-align: center;
+        margin: 1rem;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+    }
+
+    .goup-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .goup-subtitle {
+        padding: 0.5rem;
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        margin-top: 1.5rem;
+        align-self: flex-start;
+    }
+
+    .goup-ptag {
+        max-width: 36rem;
+        text-align: left;
+        padding: 0.5rem;
+        margin: 0.25rem 0.5rem;
+        letter-spacing: 0.025em;
+    }
+
+    .goup-pre {
+        width: 100%;
+        background-color: #f5f5f5;
+        border-radius: 0.375rem;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        overflow-x: auto;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .goup-pre code {
+        background: none;
+        padding: 0;
+        font-size: inherit;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .goup-pre {
+            background-color: #27272a;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+        }
+    }
+
+    .goup-images-button {
+        display: inline-block;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #3b82f6;
+        border: 1px solid #3b82f6;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .goup-images-button:hover {
+        background-color: #3b82f6;
+        color: #ffffff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .goup-images-button {
+            color: #93c5fd;
+            border-color: #93c5fd;
+        }
+
+        .goup-images-button:hover {
+            background-color: #93c5fd;
+            color: #18181b;
+        }
+    }
+
+    .goup-image {
+        width: 100%;
+        border-radius: 0.5rem;
+        margin-top: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .goup-image {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .goup-source-link {
+        font-size: 0.9rem;
+        color: #3b82f6;
+        text-decoration: none;
+        margin-top: 0.5rem;
+        align-self: flex-start;
+    }
+
+    .goup-source-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .goup-source-link {
+            color: #93c5fd;
+        }
+    }
+
+    .goup-back-button {
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #3b82f6;
+        color: #ffffff;
+        font-weight: 700;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 0.25rem;
+        transition: all 0.3s ease-in-out;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-decoration: none;
+    }
+
+    .goup-back-button:hover {
+        background-color: #1d4ed8;
+    }
+</style>
