@@ -27,19 +27,28 @@ import Layout from "../../layouts/Layout.astro";
                         >
                     </li>
                     <li>
+                        <a class="homelab-link" href="#">Debian Samba VM</a>
+                    </li>
+                    <li>
                         <a
                             class="homelab-link"
                             target="_blank"
-                            href="https://www.truenas.com/truenas-community-edition/"
-                            >TrueNAS Scale</a
+                            href="https://nginx.org/">NGINX</a
                         >
                     </li>
                     <li>
                         <a
                             class="homelab-link"
                             target="_blank"
-                            href="https://nginx.org/"
-                            >NGINX Reverse Proxy + Web Server</a
+                            href="https://github.com/fail2ban/fail2ban"
+                            >Fail2ban</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="homelab-link"
+                            target="_blank"
+                            href="https://certbot.eff.org/">Certbot</a
                         >
                     </li>
                     <li>
@@ -87,14 +96,18 @@ import Layout from "../../layouts/Layout.astro";
                     or directly on Debian host
                 </p>
                 <p class="homelab-description">
-                    Services that are images themselves like Truenas Scale and
-                    Home Assistant OS are mounted directly to a Proxmox VM disk
+                    Services that are images themselves like Home Assistant OS
+                    are mounted directly to a Proxmox VM disk
                 </p>
                 <p class="homelab-description">
-                    Backups happen everynight to an offsite (grandpa's house)
-                    server which runs Proxmox Backup Server connected via
-                    Tailscale controlled with my Headscale control plane
+                    Backups happen every night to an offsite server which runs
+                    Proxmox Backup Server connected via Tailscale controlled
+                    with my Headscale control plane
                 </p>
+                <small
+                    >Offsite server location is at my Grandfather's house in my
+                    old room</small
+                >
                 <p class="homelab-description">
                     Their is an issue such that if Headscale is not up and
                     running I cannot access the server but for security reasons
