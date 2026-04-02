@@ -13,8 +13,8 @@ import settings from "../../../public/goUp_settings.png";
 
             <div class="goup-section">
                 <p class="goup-ptag">
-                    GoUp is a server monitor I made so I could have a simple UI
-                    with some basic analysis for all of my homelab services
+                    GoUp is a server monitor for HTTP services allowing for
+                    customizable uptime status and error triggers
                 </p>
                 <p class="goup-ptag">
                     It is made with Go for the backend and React for the
@@ -22,7 +22,7 @@ import settings from "../../../public/goUp_settings.png";
                     embedded into the executable
                 </p>
                 <p class="goup-ptag">
-                    It operates off a configuration file in the YAML format, it
+                    It operates off a configuration file in YAML format, it
                     currently has the option to specify what the name of the
                     file is via command line arguments with the default name
                     being <code>services.yml</code>
@@ -36,7 +36,8 @@ import settings from "../../../public/goUp_settings.png";
                 <h3 class="goup-subtitle">An Example Configuration File</h3>
                 <pre
                     class="goup-pre"><code>db_path: ./database.db
-db_max_size: 4kb
+db_max_size: 64kb
+# Saves database file on close or kill otherwise deletes
 persist_db: true
 services:
   adguard:
@@ -45,12 +46,19 @@ services:
     url: http://frigate.com/
   jellyfin:
     url: http://jellyfin.com/
+    # Specifies to retry on error 2 times
+    retry: 2
   truenas_scale:
     url: http://truenas-scale.com/
+    # HTTP request will also be made to API server alongside base URL
     api_url: http://truenas-scale.metrics-server.com/
+    # If a API key is specified it will be sent with the API URL request
     api_key: your_key
+    # Specifies all valid HTTP respones the service may return, default is 200
     valid_responses: 200, 304
 triggers:
+  # Backoff for firing error events
+  backoff: 30s
   mqtt:
     mqtt_broker: null
     mqtt_user: null
@@ -59,7 +67,11 @@ triggers:
     webhook_url: null
     webhook_key: null
     custom_message: null
-    backoff: null</code></pre>
+    backoff: null
+# Schedule to scrape services (every 60 seconds)
+schedule:
+  span: 60
+  interval: seconds</code></pre>
             </div>
 
             <div class="goup-section">
@@ -76,14 +88,20 @@ triggers:
                     or external dependencies are required
                 </p>
                 <p class="goup-ptag">
-                    The current drawbacks are that it has no built in HTTPS so
-                    if one wants to parse information from HTTPS requests they
-                    must first route it through a reverse proxy to downgrade the
-                    HTTPS request to HTTP There is also no built in
-                    authentication as I did not want to to maintain
-                    authentication solutions and/or force the users (if any)
-                    into my authentication so it is built to run on LAN or
-                    trusted networks
+                    The current drawbacks are that it has no built in TLS for
+                    HTTPS requests so if one wants to parse HTTP information
+                    from HTTPS requests they must first route it through a
+                    reverse proxy to downgrade the HTTPS request to HTTP
+                </p>
+                <p class="goup-ptag">
+                    There is also no built in authentication as I did not want
+                    to to maintain authentication solutions and/or force the
+                    users (if any) into my authentication so it is built to run
+                    on LAN or trusted networks such as on a Tailscale tailnet
+                </p>
+                <p class="goup-ptag">
+                    Docker as well as all major release (Windows, Linux, Mac)
+                    builds are available for download
                 </p>
                 <a href="#" id="openImagesButton" class="goup-images-button"
                     >See Images &#9660;</a
