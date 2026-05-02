@@ -10,90 +10,137 @@ import Layout from "../../layouts/Layout.astro";
             <div class="homelab-section">
                 <h2 class="homelab-subtitle">Services</h2>
 
-                <ul class="homelab-list">
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://www.home-assistant.io/"
-                            >Home Assistant</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://headscale.net/stable/">Headscale</a
-                        >
-                    </li>
-                    <li>
-                        <a class="homelab-link" href="#">Debian Samba VM</a>
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://nginx.org/">NGINX</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://github.com/fail2ban/fail2ban"
-                            >Fail2ban</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://certbot.eff.org/">Certbot</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://github.com/AdguardTeam/AdGuardHome"
-                            >AdGuard Home</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://frigate.video/">Frigate</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://jellyfin.org/">Jellyfin</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://github.com/TeejMcSteez/goUp">GoUp</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="homelab-link"
-                            target="_blank"
-                            href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-10"
-                            >Minecraft ATM10 Server</a
-                        >
-                    </li>
-                </ul>
+                <div class="homelab-list-container">
+                    <ul class="homelab-list">
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://www.home-assistant.io/"
+                                >Home Assistant</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://headscale.net/stable/"
+                                >Headscale</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://wiki.debian.org/Samba/ServerSimple"
+                                >Debian Samba VM</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://nginx.org/">NGINX</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://github.com/fail2ban/fail2ban"
+                                >Fail2ban</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://github.com/AdguardTeam/AdGuardHome"
+                                >AdGuard Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://frigate.video/">Frigate</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://github.com/TeejMcSteez/goUp"
+                                >GoUp</a
+                            >
+                        </li>
+                    </ul>
+                    <ul class="homelab-list">
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://jellyfin.org/">Jellyfin</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://docs.seerr.dev/">Jellyseer</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://prowlarr.com/">Prowlarr</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://radarr.video/">Radarr</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://sonarr.tv/">Sonarr</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://www.qbittorrent.org/"
+                                >qBittorrent</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-10"
+                                >Minecraft ATM10 Server</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="homelab-link"
+                                target="_blank"
+                                href="https://nodered.org/">Node-RED</a
+                            >
+                        </li>
+                    </ul>
+                </div>
 
                 <p class="homelab-description">
                     All of this runs on a single node Proxmox server with most
-                    of the services being docker images running on a Debian VM
-                    or directly on Debian host
+                    of the services being docker images running on a VM (Debian
+                    & Fedora)
                 </p>
                 <p class="homelab-description">
                     Services that are images themselves like Home Assistant OS
@@ -151,6 +198,12 @@ import Layout from "../../layouts/Layout.astro";
                                     >Samsung 970 EVO Plus (2TB)</td
                                 >
                                 <td class="homelab-table-cell">Boot Drive</td>
+                            </tr>
+                            <tr class="homelab-table-row">
+                                <td class="homelab-table-cell"
+                                    >SATA Solid State Drive (1TB)</td
+                                >
+                                <td class="homelab-table-cell">SSD</td>
                             </tr>
                             <tr class="homelab-table-row">
                                 <td class="homelab-table-cell"
@@ -338,6 +391,10 @@ import Layout from "../../layouts/Layout.astro";
 
     .homelab-table-row:nth-child(even) {
         background-color: #f5f5f5; /* even:bg-neutral-100 */
+    }
+    .homelab-list-container {
+        display: flex;
+        flex-direction: row;
     }
 
     @media (prefers-color-scheme: dark) {
