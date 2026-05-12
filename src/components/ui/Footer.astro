@@ -1,0 +1,49 @@
+---
+import InfoIcon from "../../assets/Contact.svg";
+---
+
+<div id="footer">
+    <div id="icons">
+        <a target="_blank" href="mailto:teejmcsteez+website@gmail.com"
+            ><InfoIcon id="contact" height="20px" width="40px" />
+        </a>
+    </div>
+    <p id="footer-text">
+        Built with <a target="_blank" href="https://astro.build/">Astro</a> -
+        Hosted by Me with <a target="_blank" href="https://nginx.org/">
+            NGINX</a
+        >
+        and <a target="_blank" href="https://www.cloudflare.com">
+            Cloudflare</a
+        >
+    </p>
+</div>
+
+<style>
+    #footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: end;
+        text-align: center;
+        padding: 1rem;
+        margin-top: auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    #footer-text {
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+    #footer a {
+        color: #292524;
+    }
+    @media (prefers-color-scheme: dark) {
+        #contact {
+            filter: invert();
+        }
+        #footer a {
+            color: white;
+        }
+    }
+</style>

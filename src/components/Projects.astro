@@ -1,10 +1,10 @@
 <div class="container">
+    <h3>Projects</h3>
     <div id="projectLinks">
-        <a href="/projects/homelab/index.html"> Homelab </a>
-        <a href="/projects/salon/index.html"> Salon Website </a>
-        <a href="/projects/ha/index.html"> WebRTC Monkeypatch (GitHub) </a>
-        <a href="/projects/monitor/index.html"> GoUp Server Monitor </a>
-        <a href="/"> Back </a>
+        <a href="/projects/homelab/index.html">Homelab</a>
+        <a href="/projects/salon/index.html">Salon Website</a>
+        <a href="/projects/ha/index.html">WebRTC Monkeypatch</a>
+        <a href="/projects/monitor/index.html">GoUp Server Monitor</a>
     </div>
 </div>
 
@@ -12,35 +12,31 @@
     .container {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    }
+    h3 {
+        margin: 0 0 1rem 0;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.5;
     }
     #projectLinks {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 25vh;
-        background-color: var(--button-group-background-color-light);
-        border-radius: 1rem;
-    }
-    @media (prefers-color-scheme: dark) {
-        #projectLinks {
-            background-color: var(--button-group-background-color-dark);
-        }
+        gap: 0.6rem;
     }
     a {
-        margin: 1rem;
-        padding: 0.5rem;
-        color: black;
+        display: block;
+        padding: 0.75rem 1rem;
         background-color: #3a3840;
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
         text-decoration: none;
         color: white;
-        font-size: larger;
+        font-size: 1rem;
         transition: var(--button-animation-transition);
     }
     a:hover {
-        scale: 125%;
+        transform: translateX(4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 </style>

@@ -1,51 +1,30 @@
 ---
 import Navbar from "./ui/Navbar.astro";
-import InfoIcon from "../assets/Contact.svg";
 import Layout from "../layouts/Layout.astro";
+import Projects from "./Projects.astro";
+import Contact from "./Contact.astro";
+import Footer from "./ui/Footer.astro";
 ---
 
 <Layout>
     <div class="container">
         <Navbar />
-
-        <div id="hero">
-            <div class="heroBlock" id="heroBlock1">
-                <p>
-                    Hello, I am currently a Student at UNCC.<br />Check out some
-                    of my
-                    <a id="heroProjLink" href="/proj">projects</a>
-                    and tell me what I could do better!
-                </p>
+        <main id="content">
+            <a href="/about" id="about-card">
+                <div id="about-card-inner">
+                    <div id="about-text">
+                        <span id="about-label">About</span>
+                        <span id="about-sub">Software Developer · Homelab Enthusiast</span>
+                    </div>
+                    <span id="about-arrow">→</span>
+                </div>
+            </a>
+            <div id="grid">
+                <Projects />
+                <Contact />
             </div>
-            <div class="heroBlock" id="heroBlock2">
-                <p>
-                    This website is simple as I enjoy thing's simply working.<br
-                    />However, any issues or improvement's that could be made
-                    please contact me with any given method on this site.
-                </p>
-            </div>
-        </div>
-
-        <div id="footer">
-            <div id="icons">
-                <a target="_blank" href="mailto:teejmcsteez+website@gmail.com"
-                    ><InfoIcon id="contact" height="20px" width="40px" />
-                </a>
-            </div>
-            <p id="footer-text">
-                Built with <a target="_blank" href="https://astro.build/"
-                    >Astro</a
-                > - Hosted by Me with <a
-                    target="_blank"
-                    href="https://nginx.org/"
-                >
-                    NGINX</a
-                >
-                and <a target="_blank" href="https://www.cloudflare.com">
-                    Cloudflare</a
-                >
-            </p>
-        </div>
+        </main>
+        <Footer />
     </div>
 </Layout>
 
@@ -54,66 +33,74 @@ import Layout from "../layouts/Layout.astro";
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        flex-grow: 1;
     }
-    #hero {
+    #content {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        gap: 2rem;
+        padding: 2rem 1.75rem;
+        flex: 1;
     }
-    #contact {
-        transition: all 250ms ease-in-out;
-    }
-    #contact:hover {
-        scale: 125%;
-    }
-    .heroBlock {
-        width: 50vw;
-        margin: 0.5rem;
-        padding: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
-        font-size: larger;
-        color: white;
-    }
-    .heroBlock > p {
-        background-color: var(--hero-block-background-color);
-        padding: 2rem;
-        padding: 1rem;
+    #about-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background-color: var(--button-group-background-color-light);
         border-radius: 1rem;
+        padding: 1.5rem 2rem;
+        transition: var(--button-animation-transition);
     }
-    #heroProjLink {
-        color: white;
-        text-decoration: underline;
+    #about-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
-    #footer {
+    #about-card-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #about-text {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: end;
-        text-align: center;
-        padding: 1rem;
-        margin-top: auto;
-        width: 100%;
-        box-sizing: border-box;
+        gap: 0.25rem;
     }
-    #footer-text {
-        margin: 0.5rem;
-        padding: 0.5rem;
+    #about-label {
+        font-size: 1.4rem;
+        font-weight: bold;
     }
-    #footer a {
-        color: #292524;
+    #about-sub {
+        font-size: 0.95rem;
+        opacity: 0.7;
+    }
+    #about-arrow {
+        font-size: 1.5rem;
+        transition: var(--button-animation-transition);
+    }
+    #about-card:hover #about-arrow {
+        transform: translateX(4px);
+    }
+    #grid {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    #grid > :global(*) {
+        flex: 1;
+        min-width: 200px;
     }
     @media (prefers-color-scheme: dark) {
-        #contact {
-            filter: invert();
+        #about-card {
+            background-color: var(--button-group-background-color-dark);
         }
-        #footer a {
-            color: white;
+        #about-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+    }
+    @media (max-width: 600px) {
+        #grid {
+            flex-direction: column;
         }
     }
 </style>

@@ -5,65 +5,77 @@ import Layout from "../../layouts/Layout.astro";
 <Layout>
     <div class="ha-container">
         <div class="ha-content">
-            <h1 class="ha-title">Home Assistant WebRTC Ring Component Hotfix</h1>
+            <h1 class="ha-title">
+                Home Assistant WebRTC Ring Component Hotfix
+            </h1>
 
             <div class="ha-section">
                 <p class="ha-description">
-                    There was an issue with Ring's streaming API such that it would not
-                    allow new users to see their active streams because of a failure of
-                    the offer signal from the Ring API.
+                    There was an issue with Ring's streaming API such that it
+                    would not allow new users to see their active streams
+                    because of a failure of the offer signal from the Ring API.
                 </p>
                 <p class="ha-description">
-                    The issue was specifically only affecting Firefox users, because
-                    Firefox was the only major browser at the time to actually enforce
-                    WebRTC offer/send protocol standards. Because of this there were 3
-                    options for me.
+                    The issue was specifically only affecting Firefox users,
+                    because Firefox was the only major browser at the time to
+                    actually enforce WebRTC offer/send protocol standards.
+                    Because of this there were 3 options for me.
                 </p>
                 <ul class="ha-list">
                     <li>Hack Firefox to not follow specification</li>
                     <li>
-                        Wait for Ring to fix their API if ever, and offer correct
-                        signals
+                        Wait for Ring to fix their API if ever, and offer
+                        correct signals
                     </li>
                     <li>
-                        Make my own custom Ring component which handles morphing bad
-                        signals into streamable ones
+                        Make my own custom Ring component which handles morphing
+                        bad signals into streamable ones
                     </li>
                 </ul>
                 <p class="ha-description">
-                    The easiest solution was to make my own custom component and so I
-                    started. It took a bit of setup to figure out Home Assistant
-                    development and understand how components are loaded into the system,
-                    but after that I got to work.
+                    The easiest solution was to make my own custom component and
+                    so I started. It took a bit of setup to figure out Home
+                    Assistant development and understand how components are
+                    loaded into the system, but after that I got to work.
                 </p>
                 <p class="ha-description">
-                    I tried to pinpoint exactly where the signals were being received so
-                    I could check them and ensure that they are valid, and if not, change
-                    them so they are valid.
+                    I tried to pinpoint exactly where the signals were being
+                    received so I could check them and ensure that they are
+                    valid, and if not, change them so they are valid.
                 </p>
                 <p class="ha-description">
-                    I did this by using <a class="ha-link" href="https://github.com/skymaze/">Skymaze's</a>
-                    <a class="ha-link" href="https://github.com/skymaze/sdp-transform">SDP transform library</a>
-                    as I did not want to deal with parsing the specification myself if possible.
-                    On a signal stream event I check the signal to see if it is send, send/receive,
-                    or receive only, as this is what tells each peer whether they are receiving
-                    or streaming a video feed.
+                    I did this by using <a
+                        class="ha-link"
+                        href="https://github.com/skymaze/">Skymaze's</a
+                    >
+                    <a
+                        class="ha-link"
+                        href="https://github.com/skymaze/sdp-transform"
+                        >SDP transform library</a
+                    >
+                    as I did not want to deal with parsing the specification myself
+                    if possible. On a signal stream event I check the signal to see
+                    if it is send, send/receive, or receive only, as this is what
+                    tells each peer whether they are receiving or streaming a video
+                    feed.
                 </p>
                 <p class="ha-description">
-                    I verified the fix worked for me then posted it as a comment on the
-                    issue on GitHub. Other authors took the work and made it much better
-                    and did the work to upstream it into the PyPi Ring doorbell library <a
+                    I verified the fix worked for me then posted it as a comment
+                    on the issue on GitHub. Other authors took the work and made
+                    it much better and did the work to upstream it into the PyPi
+                    Ring doorbell library <a
                         class="ha-link"
                         href="https://github.com/python-ring-doorbell/python-ring-doorbell/pull/491"
                         >(See Here)</a
                     >, while the quick fix with the custom component is still on <a
                         class="ha-link"
-                        href="https://github.com/TeejMcSteez/HAWebRTCFix">my profile</a
+                        href="https://github.com/TeejMcSteez/HAWebRTCFix"
+                        >my profile</a
                     >
                     for anyone to use.
                 </p>
             </div>
-            <a class="ha-back-button" href="/proj">Back</a>
+            <a class="ha-back-button" href="/">Back</a>
         </div>
     </div>
 </Layout>

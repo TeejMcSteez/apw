@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout>
     <div class="homelab-container">
-        <div id="#homelab">
+        <div id="homelab">
             <h1 class="homelab-title">Personal Homelab</h1>
 
             <div class="homelab-section">
@@ -165,7 +165,7 @@ import Layout from "../../layouts/Layout.astro";
                     Server Hardware
                 </h2>
 
-                <div id="#homelabHardwareTable" class="homelab-table-container">
+                <div id="homelab-hardware-table" class="homelab-table-container">
                     <table class="homelab-table">
                         <thead>
                             <tr>
@@ -245,7 +245,7 @@ import Layout from "../../layouts/Layout.astro";
                 <h2 class="homelab-subtitle homelab-subtitle-center">
                     Backup Server Hardware
                 </h2>
-                <div id="#homelabHardwareTable" class="homelab-table-container">
+                <div id="homelab-backup-table" class="homelab-table-container">
                     <table class="homelab-table">
                         <thead>
                             <tr>
@@ -285,7 +285,7 @@ import Layout from "../../layouts/Layout.astro";
                         </tbody>
                     </table>
                 </div>
-                <a class="homelab-back-button" href="/proj">Back</a>
+                <a class="homelab-back-button" href="/">Back</a>
             </div>
         </div>
     </div>
@@ -304,9 +304,8 @@ import Layout from "../../layouts/Layout.astro";
 
     .homelab-title {
         text-align: center;
-        margin-top: 1rem; /* mt-4 */
-        padding: 0.5rem; /* p-2 */
-        margin: 1rem; /* m-4 */
+        padding: 0.5rem;
+        margin: 1rem;
         font-size: 1.5rem; /* text-2xl */
         line-height: 2rem;
         font-weight: 700; /* font-bold */
