@@ -1,0 +1,162 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <div class="ha-container">
+        <div class="ha-content">
+            <h1 class="ha-title">Home Assistant WebRTC Ring Component Hotfix</h1>
+
+            <div class="ha-section">
+                <p class="ha-description">
+                    There was an issue with Ring's streaming API such that it would not
+                    allow new users to see their active streams because of a failure of
+                    the offer signal from the Ring API.
+                </p>
+                <p class="ha-description">
+                    The issue was specifically only affecting Firefox users, because
+                    Firefox was the only major browser at the time to actually enforce
+                    WebRTC offer/send protocol standards. Because of this there were 3
+                    options for me.
+                </p>
+                <ul class="ha-list">
+                    <li>Hack Firefox to not follow specification</li>
+                    <li>
+                        Wait for Ring to fix their API if ever, and offer correct
+                        signals
+                    </li>
+                    <li>
+                        Make my own custom Ring component which handles morphing bad
+                        signals into streamable ones
+                    </li>
+                </ul>
+                <p class="ha-description">
+                    The easiest solution was to make my own custom component and so I
+                    started. It took a bit of setup to figure out Home Assistant
+                    development and understand how components are loaded into the system,
+                    but after that I got to work.
+                </p>
+                <p class="ha-description">
+                    I tried to pinpoint exactly where the signals were being received so
+                    I could check them and ensure that they are valid, and if not, change
+                    them so they are valid.
+                </p>
+                <p class="ha-description">
+                    I did this by using <a class="ha-link" href="https://github.com/skymaze/">Skymaze's</a>
+                    <a class="ha-link" href="https://github.com/skymaze/sdp-transform">SDP transform library</a>
+                    as I did not want to deal with parsing the specification myself if possible.
+                    On a signal stream event I check the signal to see if it is send, send/receive,
+                    or receive only, as this is what tells each peer whether they are receiving
+                    or streaming a video feed.
+                </p>
+                <p class="ha-description">
+                    I verified the fix worked for me then posted it as a comment on the
+                    issue on GitHub. Other authors took the work and made it much better
+                    and did the work to upstream it into the PyPi Ring doorbell library <a
+                        class="ha-link"
+                        href="https://github.com/python-ring-doorbell/python-ring-doorbell/pull/491"
+                        >(See Here)</a
+                    >, while the quick fix with the custom component is still on <a
+                        class="ha-link"
+                        href="https://github.com/TeejMcSteez/HAWebRTCFix">my profile</a
+                    >
+                    for anyone to use.
+                </p>
+            </div>
+            <a class="ha-back-button" href="/proj">Back</a>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .ha-container {
+        max-width: 48rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .ha-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ha-title {
+        text-align: center;
+        margin: 1rem;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+    }
+
+    .ha-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .ha-description {
+        max-width: 36rem;
+        text-align: left;
+        padding: 0.5rem;
+        margin: 0.25rem 0.5rem;
+        letter-spacing: 0.025em;
+    }
+
+    .ha-list {
+        margin: 1.25rem;
+        list-style-type: disc;
+        list-style-position: inside;
+        max-width: 36rem;
+        width: 100%;
+    }
+
+    .ha-list li {
+        margin-bottom: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        letter-spacing: 0.025em;
+    }
+
+    .ha-link {
+        color: #3b82f6;
+        text-decoration: none;
+    }
+
+    .ha-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .ha-link {
+            color: #93c5fd;
+        }
+    }
+
+    .ha-back-button {
+        display: inline-block;
+        background-color: #3b82f6;
+        color: #ffffff;
+        font-weight: 700;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 0.25rem;
+        transition: all 0.3s ease-in-out;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-decoration: none;
+    }
+
+    .ha-back-button:hover {
+        background-color: #1d4ed8;
+    }
+</style>
