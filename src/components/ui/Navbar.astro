@@ -1,9 +1,32 @@
 ---
+
 ---
 
 <nav id="nav">
     <a href="/" id="site-name">Tommy Hall</a>
 </nav>
+
+<script is:inline>
+    if (window.location.pathname != "/") {
+        const el = document.getElementById("site-name");
+        const original = el.innerText;
+        const target = "Back";
+        let i = original.length;
+
+        const del = setInterval(() => {
+            el.innerText = original.slice(0, i--);
+
+            if (i < 0) {
+                clearInterval(del);
+                let j = 0;
+                const type = setInterval(() => {
+                    el.innerText = target.slice(0, ++j);
+                    if (j >= target.length) clearInterval(type);
+                }, 80);
+            }
+        }, 50);
+    }
+</script>
 
 <style>
     #nav {
