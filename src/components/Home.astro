@@ -7,17 +7,17 @@ import Footer from "./ui/Footer.astro";
 ---
 
 <script>
-    /**
-     * Personalize info intro to be a bit more interesting
-     */
+    // 604800 = 1 week
+    const COOKIE_ATTRS = "; SameSite=Strict; Secure; Max-Age=604800";
     // hrc = home render count
     let hrc = document.cookie.match(/(?:^|;\s*)hrc=(\d+)/)?.[1];
     const id = document.getElementById("about-sub");
-    const incr = () => (document.cookie = `hrc=${++current_count}`);
     let current_count: number;
+    const incr = () =>
+        (document.cookie = `hrc=${++current_count}${COOKIE_ATTRS}`);
     if (!hrc) {
-        document.cookie = "hrc=0";
-        hrc = document.cookie.split("=")[1];
+        document.cookie = `hrc=0${COOKIE_ATTRS}`;
+        hrc = "0";
     }
     if (hrc) current_count = Number.parseInt(hrc);
     else throw new Error("Failed to find cookie");
