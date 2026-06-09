@@ -20,7 +20,7 @@ import Footer from "./ui/Footer.astro";
         hrc = document.cookie.split("=")[1];
     }
     if (hrc) current_count = Number.parseInt(hrc);
-    else throw new Error("Failed to find cokie");
+    else throw new Error("Failed to find cookie");
     if (current_count === 0) {
         // Cute load in sleep
         await new Promise((res) => setTimeout(res, 500));
