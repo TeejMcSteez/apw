@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "astro": "^6.4.4"
+    "astro": "^6.4.6"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
