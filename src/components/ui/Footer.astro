@@ -9,13 +9,12 @@ import InfoIcon from "../../assets/Contact.svg";
         </a>
     </div>
     <p id="footer-text">
-        Built with <a target="_blank" href="https://astro.build/">Astro</a> -
-        Hosted by Me with <a target="_blank" href="https://nginx.org/">
-            NGINX</a
-        >
-        and <a target="_blank" href="https://www.cloudflare.com">
-            Cloudflare</a
-        >
+        Built with <a target="_blank" href="https://astro.build/">Astro</a> - Hosted
+        by Me with <a target="_blank" href="https://nginx.org/"> NGINX</a>
+        and <a target="_blank" href="https://www.cloudflare.com"> Cloudflare</a>
+    </p>
+    <p id="footer-text">
+        <a id="privacy-text" href="/priv">Privacy Notice</a>
     </p>
 </div>
 
@@ -33,10 +32,12 @@ import InfoIcon from "../../assets/Contact.svg";
     }
     #footer-text {
         margin: 0.5rem;
-        padding: 0.5rem;
     }
     #footer a {
         color: #292524;
+    }
+    #privacy-text {
+        font-size: small;
     }
     @media (prefers-color-scheme: dark) {
         #contact {
