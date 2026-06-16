@@ -11,7 +11,12 @@ import Footer from "./ui/Footer.astro";
             <div id="hero-left">
                 <p id="hero-bio">
                     I work on things that people and myself find useful and
-                    enjoy keeping solutions simple and open.
+                    enjoy keeping solutions simple and open. I also like cool
+                    projects <a
+                        href="https://github.com/TeejMcSteez?tab=stars"
+                        target="_blank"
+                        id="gh-stars">like these here</a
+                    >.
                 </p>
             </div>
             <div id="hero-cards">
@@ -103,6 +108,10 @@ import Footer from "./ui/Footer.astro";
         font-size: 1rem;
         font-weight: bold;
     }
+    #gh-stars {
+        text-decoration: underline;
+        color: black;
+    }
     @media (prefers-color-scheme: dark) {
         .card {
             background-color: var(--button-group-background-color-dark);
@@ -110,6 +119,9 @@ import Footer from "./ui/Footer.astro";
         }
         .card:hover {
             box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+        }
+        #gh-stars {
+            color: white;
         }
     }
     @media (max-width: 650px) {
