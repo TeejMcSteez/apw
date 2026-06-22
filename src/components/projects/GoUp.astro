@@ -17,81 +17,86 @@ import settings from "../../../public/goUp_settings.png";
                     customizable uptime status and error triggers
                 </p>
                 <p class="goup-ptag">
-                    It is made with Go for the backend and React for the
-                    frontend rendered into HTML + static assets before being
-                    embedded into the executable
+                    It is made with Go and React for the rendered into HTML +
+                    static assets before being embedded into the Go executable
                 </p>
                 <p class="goup-ptag">
                     It operates off a configuration file in YAML format, it
                     currently has the option to specify what the name of the
                     file is via command line arguments with the default name
-                    being <code>services.yml</code>
+                    being <code>services.yml</code> as well as the option to run the
+                    server without a UI
                 </p>
                 <p class="goup-ptag">
-                    The configuration file is also checked when the program is
-                    running and if changes are detected from the start the
-                    program will hot reload the configuration file and in memory
-                    configuration derived from the file
+                    The configuration file is also periodically checked when the
+                    program is running and if changes are detected from the
+                    start the program will hot reload the configuration file and
+                    in memory configuration derived from the file
                 </p>
                 <h3 class="goup-subtitle">An Example Configuration File</h3>
                 <pre
                     class="goup-pre"><code>db_path: ./database.db
-db_max_size: 64kb
-# Saves database file on close or kill otherwise deletes
+db_path: "./database.db"
+db_max_size: "1gb"
 persist_db: true
+
 services:
-  adguard:
-    url: http://adguard.com/
-  frigate:
-    url: http://frigate.com/
-  jellyfin:
-    url: http://jellyfin.com/
-    # Specifies to retry on error 2 times
+    home_assistant:
+    url: "https://ha.example.com/"
+    description: "Home automation hub"
+    api_url: "https://ha.example.com/api/"
+    api_key: "token"
+    valid_responses: ["200", "201"]
     retry: 2
-  truenas_scale:
-    url: http://truenas-scale.com/
-    # HTTP request will also be made to API server alongside base URL
-    api_url: http://truenas-scale.metrics-server.com/
-    # If a API key is specified it will be sent with the API URL request
-    api_key: your_key
-    # Specifies all valid HTTP respones the service may return, default is 200
-    valid_responses: 200, 304
+
+    truenas:
+    url: "http://nas.example.com/"
+    description: "NAS storage"
+
 triggers:
-  # Backoff for firing error events
-  backoff: 30s
-  mqtt:
-    mqtt_broker: null
-    mqtt_user: null
-    mqtt_key: null
-  webhook:
-    webhook_url: null
-    webhook_key: null
-    custom_message: null
-    backoff: null
-# Schedule to scrape services (every 60 seconds)
-schedule:
-  span: 60
-  interval: seconds</code></pre>
+    backoff: "30m"
+    mqtt:
+    mqtt_broker: "mqtt://broker.example.com"
+    mqtt_user: "user"
+    mqtt_key: "password"
+    webhook:
+    webhook_url: "https://hooks.example.com/alert"
+    webhook_key: "Bearer token"
+    smtp:
+    smtp_server: "smtp.gmail.com:587"
+    email: "you@gmail.com"
+    app_password: "app-password"
+    gotify:
+    gotify_server: "https://gotify.example.com"
+    gotify_app_token: "token"
+    gotify_title: "GoUp Alert"
+    gotify_priority: 5
+    slack:
+    slack_token: "xoxb-token"
+    slack_channel: "C1234567890"
+    username: "GoUp Bot"
+    telegram:
+    telegram_token: "bot-token"
+    telegram_channel_id: "@channelname"
+    home_assistant:
+    ha_url: "http://homeassistant.local:8123"
+    ha_token: "long-lived-access-token"
+    discord:
+    discord_auth: "Bot token"
+    discord_channel_id: "123456789012345678"</code></pre>
             </div>
 
             <div class="goup-section">
                 <p class="goup-ptag">
                     Because of the Go concurrency model it allows the program to
                     handle heavy IO operations like fetch requests and writing
-                    to the SQLite database with relative ease while serving HTTP
-                    requests
+                    to the SQLite database while serving requests
                 </p>
                 <p class="goup-ptag">
                     The program is light-weight enough to run on something as
                     small as a Raspberry Pi with 2GB RAM Also, since the entire
                     program is a pure Go executable no shared system libraries
                     or external dependencies are required
-                </p>
-                <p class="goup-ptag">
-                    The current drawbacks are that it has no built in TLS for
-                    HTTPS requests so if one wants to parse HTTP information
-                    from HTTPS requests they must first route it through a
-                    reverse proxy to downgrade the HTTPS request to HTTP
                 </p>
                 <p class="goup-ptag">
                     There is also no built in authentication as I did not want
