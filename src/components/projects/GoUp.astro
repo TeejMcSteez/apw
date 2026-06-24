@@ -17,15 +17,15 @@ import settings from "../../../public/goUp_settings.png";
                     customizable uptime status and error triggers
                 </p>
                 <p class="goup-ptag">
-                    It is made with Go and React for the rendered into HTML +
-                    static assets before being embedded into the Go executable
+                    It is made with Go and React rendered into HTML + static
+                    assets before being embedded into the Go executable
                 </p>
                 <p class="goup-ptag">
-                    It operates off a configuration file in YAML format, it
-                    currently has the option to specify what the name of the
-                    file is via command line arguments with the default name
-                    being <code>services.yml</code> as well as the option to run the
-                    server without a UI
+                    It operates off a YAML configuration file, it currently has
+                    the option to specify what the name of the file is via
+                    command line arguments with the default name being <code
+                        >services.yml</code
+                    > as well as the option to run the server without a UI
                 </p>
                 <p class="goup-ptag">
                     The configuration file is also periodically checked when the
@@ -42,48 +42,48 @@ persist_db: true
 
 services:
     home_assistant:
-    url: "https://ha.example.com/"
-    description: "Home automation hub"
-    api_url: "https://ha.example.com/api/"
-    api_key: "token"
-    valid_responses: ["200", "201"]
-    retry: 2
+        url: "https://ha.example.com/"
+        description: "Home automation hub"
+        api_url: "https://ha.example.com/api/"
+        api_key: "token"
+        valid_responses: ["200", "201"]
+        retry: 2
 
     truenas:
-    url: "http://nas.example.com/"
-    description: "NAS storage"
+        url: "http://nas.example.com/"
+        description: "NAS storage"
 
 triggers:
     backoff: "30m"
     mqtt:
-    mqtt_broker: "mqtt://broker.example.com"
-    mqtt_user: "user"
-    mqtt_key: "password"
+        mqtt_broker: "mqtt://broker.example.com"
+        mqtt_user: "user"
+        mqtt_key: "password"
     webhook:
-    webhook_url: "https://hooks.example.com/alert"
-    webhook_key: "Bearer token"
+        webhook_url: "https://hooks.example.com/alert"
+        webhook_key: "Bearer token"
     smtp:
-    smtp_server: "smtp.gmail.com:587"
-    email: "you@gmail.com"
-    app_password: "app-password"
+        smtp_server: "smtp.gmail.com:587"
+        email: "you@gmail.com"
+        app_password: "app-password"
     gotify:
-    gotify_server: "https://gotify.example.com"
-    gotify_app_token: "token"
-    gotify_title: "GoUp Alert"
-    gotify_priority: 5
+        gotify_server: "https://gotify.example.com"
+        gotify_app_token: "token"
+        gotify_title: "GoUp Alert"
+        gotify_priority: 5
     slack:
-    slack_token: "xoxb-token"
-    slack_channel: "C1234567890"
-    username: "GoUp Bot"
+        slack_token: "xoxb-token"
+        slack_channel: "C1234567890"
+        username: "GoUp Bot"
     telegram:
-    telegram_token: "bot-token"
-    telegram_channel_id: "@channelname"
+        telegram_token: "bot-token"
+        telegram_channel_id: "@channelname"
     home_assistant:
-    ha_url: "http://homeassistant.local:8123"
-    ha_token: "long-lived-access-token"
+        ha_url: "http://homeassistant.local:8123"
+        ha_token: "long-lived-access-token"
     discord:
-    discord_auth: "Bot token"
-    discord_channel_id: "123456789012345678"</code></pre>
+        discord_auth: "Bot token"
+        discord_channel_id: "123456789012345678"</code></pre>
             </div>
 
             <div class="goup-section">
