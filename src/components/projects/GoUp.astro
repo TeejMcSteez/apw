@@ -34,56 +34,56 @@ import settings from "../../../public/goUp_settings.png";
                     in memory configuration derived from the file
                 </p>
                 <h3 class="goup-subtitle">An Example Configuration File</h3>
-                <pre
-                    class="goup-pre"><code>db_path: ./database.db
-db_path: "./database.db"
+                <pre class="goup-pre"><code>db_path: "./database.db"
 db_max_size: "1gb"
 persist_db: true
 
 services:
-    home_assistant:
-        url: "https://ha.example.com/"
-        description: "Home automation hub"
-        api_url: "https://ha.example.com/api/"
-        api_key: "token"
-        valid_responses: ["200", "201"]
-        retry: 2
+  home_assistant:
+    url: "https://ha.example.com/"
+    description: "Home automation hub"
+    api_url: "https://ha.example.com/api/"
+    api_key: "&lt;token&gt;"
+    valid_responses: ["200", "201"]
+    retry: 2
 
-    truenas:
-        url: "http://nas.example.com/"
-        description: "NAS storage"
+  truenas:
+    url: "http://nas.example.com/"
+    description: "NAS storage"
 
 triggers:
-    backoff: "30m"
-    mqtt:
-        mqtt_broker: "mqtt://broker.example.com"
-        mqtt_user: "user"
-        mqtt_key: "password"
-    webhook:
-        webhook_url: "https://hooks.example.com/alert"
-        webhook_key: "Bearer token"
-    smtp:
-        smtp_server: "smtp.gmail.com:587"
-        email: "you@gmail.com"
-        app_password: "app-password"
-    gotify:
-        gotify_server: "https://gotify.example.com"
-        gotify_app_token: "token"
-        gotify_title: "GoUp Alert"
-        gotify_priority: 5
-    slack:
-        slack_token: "xoxb-token"
-        slack_channel: "C1234567890"
-        username: "GoUp Bot"
-    telegram:
-        telegram_token: "bot-token"
-        telegram_channel_id: "@channelname"
-    home_assistant:
-        ha_url: "http://homeassistant.local:8123"
-        ha_token: "long-lived-access-token"
-    discord:
-        discord_auth: "Bot token"
-        discord_channel_id: "123456789012345678"</code></pre>
+  backoff: "30m"
+  mqtt:
+    mqtt_broker: "mqtt://broker.example.com"
+    mqtt_user: "&lt;user&gt;"
+    mqtt_key: "&lt;password&gt;"
+  webhook:
+    webhook_url: "https://hooks.example.com/alert"
+    webhook_key: "Bearer &lt;token&gt;"
+    custom_message: '&#123; "source": "goUp" &#125;'
+    backoff: "5m" # overrides global backoff for this trigger
+  smtp:
+    smtp_server: "smtp.gmail.com:587"
+    email: "you@gmail.com"
+    app_password: "&lt;app-password&gt;"
+  gotify:
+    gotify_server: "https://gotify.example.com"
+    gotify_app_token: "&lt;token&gt;"
+    gotify_title: "GoUp Alert"
+    gotify_priority: 5
+  slack:
+    slack_token: "xoxb-&lt;token&gt;"
+    slack_channel: "C1234567890"
+    username: "GoUp Bot"
+  telegram:
+    telegram_token: "&lt;bot-token&gt;"
+    telegram_channel_id: "@channelname"
+  home_assistant:
+    ha_url: "http://homeassistant.local:8123"
+    ha_token: "&lt;long-lived-access-token&gt;"
+  discord:
+    discord_auth: "Bot &lt;token&gt;"
+    discord_channel_id: "123456789012345678"</code></pre>
             </div>
 
             <div class="goup-section">
