@@ -1,0 +1,153 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <div id="model-body">
+        <h1 id="model-title">YOLO Model Fine Tuning</h1>
+        <div id="model-text-container">
+            <p class="model-body-text">
+                I run a Frigate instance (see <a
+                    href="/projects/homelab/index.html"
+                    target="_blank"
+                    class="model-body-link">here</a
+                >) which uses ONNX runtime and supports YOLO models. I had been
+                using a plain YOLO(NAS) model trained on public data which did
+                fine for human detection but often choked at detecting my dog at
+                odd angles in my apartment. So I finally had the idea to try to
+                fine tune the model I had or a newer one to improve performance,
+                I did not realize the rabbit hole I was stepping into.
+            </p>
+            <p class="model-body-text">
+                For a basic understanding (one I can not yet give) read <a
+                    href="https://docs.ultralytics.com/"
+                    target="_blank"
+                    class="model-body-link">here</a
+                > on how YOLO works. There are many parameters you can change to get
+                an intended outcome but I focused on my size (of the taken pixel grouping)
+                and ensuring I had odd angles off a dog in my training data. That
+                lead me to another problem . . . training data, thankfully frigate
+                keeps clips from motion or audio detections making quality captures
+                easy from my home running off of the base model. This however does
+                not annotate and allow me to change the data which then led me to&nbsp;
+                <a
+                    href="https://www.cvat.ai/"
+                    class="model-body-link"
+                    target="_blank">CVAT</a
+                >.
+            </p>
+            <p class="model-body-text">
+                <a
+                    href="https://www.cvat.ai/"
+                    class="model-body-link"
+                    target="_blank">CVAT</a
+                > is a very cool open source project that offers the user a, <cite
+                    >"labeling suite for teams building real world AI"</cite
+                >. To start I made a basic python script to download a YOLO
+                model and run it through the images I have to get a rough
+                annotation for all (4000+) images.
+            </p>
+            <p class="model-body-text">
+                After running an automated python script to annotate the given
+                images the pain staking process of going through images and
+                deleting bad ones, touching up bad marks from the past model, or
+                improving marks the model didn't make takes enourmous amounts of
+                time. Most of which is a continous ongoing process when I have
+                free time or am bored enough to improve the training data
+                quality.
+            </p>
+            <p class="model-body-text">
+                After training data was annotated enough for me to want to test
+                the results against a normal model from <a
+                    href="https://www.ultralytics.com/"
+                    target="_blank"
+                    class="model-body-link">Ultralytics</a
+                > after fine tuning one hence the training began. I used simple python
+                scripts to rougly divide up training data into categories removing
+                a high ratio of backgrounds. Then used <a
+                    href="https://www.ultralytics.com/"
+                    target="_blank"
+                    class="model-body-link">Ultralytics</a
+                >&nbsp;
+                <a
+                    href="https://pypi.org/project/ultralytics/"
+                    target="_blank"
+                    class="model-body-link">PyPi package</a
+                > to fine tune the model against my training data. On my workstation
+                with a 10GB 3080 it took rougly 30-60 minutes at 640 image size running
+                for a base of 100 epochs. While I am still working on comparing the
+                old model with the current one I can say that it does make a difference,
+                a model I had tested I had overmarked the person object so the model
+                would mistake things like a trash can as a person.
+            </p>
+            <p class="model-body-text">
+                I am roughly on version 3 of the model changing the epochs from
+                100 to 200 and the patience (when it stops training i.e. "good
+                enough") to 20 the next step is to up the image size to
+                hopefully increase the quality the model receives being able to
+                detect things with higher accuracy even at lower quality. Check
+                back in for updates to this project!
+            </p>
+            <a
+                class="model-body-link"
+                href="https://github.com/TeejMcSteez/dataset"
+                target="_blank"
+                rel="noopener noreferrer">View source on GitHub &rarr;</a
+            >
+        </div>
+        <a id="back" href="/">Back</a>
+    </div>
+</Layout>
+
+<style>
+    p a {
+        white-space: nowrap;
+    }
+    .model-body-link {
+        color: #3b82f6; /* text-blue-500 - same as Lab.astro*/
+        text-decoration: none;
+    }
+
+    .model-body-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .model-body-link {
+            color: #93c5fd; /* dark:text-blue-300 - same as Lab.astro*/
+        }
+    }
+    #model-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #model-title {
+        text-align: center;
+    }
+    #model-text-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 65ch;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    #back {
+        display: inline-block;
+        background-color: #3b82f6; /* bg-blue-500 */
+        color: #ffffff; /* text-white */
+        font-weight: 700; /* font-bold */
+        padding-top: 0.5rem; /* py-2 */
+        padding-bottom: 0.5rem; /* py-2 */
+        padding-left: 1rem; /* px-4 */
+        padding-right: 1rem; /* px-4 */
+        border-radius: 0.25rem; /* rounded */
+        transition: all 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+        margin-top: 2rem; /* mt-8 */
+        margin-bottom: 1rem; /* mb-4 */
+        text-decoration: none;
+    }
+    #back:hover {
+        background-color: #1d4ed8;
+    }
+</style>
