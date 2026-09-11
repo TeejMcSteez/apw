@@ -1,9 +1,25 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import analytics from "../../../public/goUp_analytics.png";
-import landing from "../../../public/goUp_landing.png";
-import services from "../../../public/goUp_services.png";
-import settings from "../../../public/goUp_settings.png";
+import example_yaml from "../../assets/services.yml?raw";
+import { Image } from "astro:assets";
+// import { images } from "../../lib/goup.ts";
+const metadata = Object.values(
+    import.meta.glob<ImageMetadata>("../../assets/*.png", {
+        eager: true,
+        import: "default",
+    }),
+);
+const images = metadata.map((data) => {
+    const tag = data.src.slice(
+        data.src.lastIndexOf("_") + 1,
+        data.src.lastIndexOf("."),
+    );
+
+    return {
+        image: data,
+        alt: tag.concat(" page"),
+    };
+});
 ---
 
 <Layout>
@@ -23,9 +39,9 @@ import settings from "../../../public/goUp_settings.png";
                 <p class="goup-ptag">
                     It operates off a YAML configuration file, it currently has
                     the option to specify what the name of the file is via
-                    command line arguments with the default name being <code
-                        >services.yml</code
-                    > as well as the option to run the server without a UI
+                    command line arguments with the default name being{" "}
+                    <code>services.yml</code> as well as the option to run the
+                    server without a UI
                 </p>
                 <p class="goup-ptag">
                     The configuration file is also periodically checked when the
@@ -34,56 +50,7 @@ import settings from "../../../public/goUp_settings.png";
                     in memory configuration derived from the file
                 </p>
                 <h3 class="goup-subtitle">An Example Configuration File</h3>
-                <pre class="goup-pre"><code>db_path: "./database.db"
-db_max_size: "1gb"
-persist_db: true
-
-services:
-  home_assistant:
-    url: "https://ha.example.com/"
-    description: "Home automation hub"
-    api_url: "https://ha.example.com/api/"
-    api_key: "&lt;token&gt;"
-    valid_responses: ["200", "201"]
-    retry: 2
-
-  truenas:
-    url: "http://nas.example.com/"
-    description: "NAS storage"
-
-triggers:
-  backoff: "30m"
-  mqtt:
-    mqtt_broker: "mqtt://broker.example.com"
-    mqtt_user: "&lt;user&gt;"
-    mqtt_key: "&lt;password&gt;"
-  webhook:
-    webhook_url: "https://hooks.example.com/alert"
-    webhook_key: "Bearer &lt;token&gt;"
-    custom_message: '&#123; "source": "goUp" &#125;'
-    backoff: "5m" # overrides global backoff for this trigger
-  smtp:
-    smtp_server: "smtp.gmail.com:587"
-    email: "you@gmail.com"
-    app_password: "&lt;app-password&gt;"
-  gotify:
-    gotify_server: "https://gotify.example.com"
-    gotify_app_token: "&lt;token&gt;"
-    gotify_title: "GoUp Alert"
-    gotify_priority: 5
-  slack:
-    slack_token: "xoxb-&lt;token&gt;"
-    slack_channel: "C1234567890"
-    username: "GoUp Bot"
-  telegram:
-    telegram_token: "&lt;bot-token&gt;"
-    telegram_channel_id: "@channelname"
-  home_assistant:
-    ha_url: "http://homeassistant.local:8123"
-    ha_token: "&lt;long-lived-access-token&gt;"
-  discord:
-    discord_auth: "Bot &lt;token&gt;"
-    discord_channel_id: "123456789012345678"</code></pre>
+                <pre class="goup-pre"><code>{example_yaml.trim()}</code></pre>
             </div>
 
             <div class="goup-section">
@@ -108,42 +75,34 @@ triggers:
                     Docker as well as all major release (Windows, Linux, Mac)
                     builds are available for download
                 </p>
-                <button id="openImagesButton" class="goup-images-button"
-                    >See Images &#9660;</button
-                >
+                <button id="openImagesButton" class="goup-images-button">
+                    See Images &#9660;
+                </button>
                 <div
                     id="goup-images"
                     style="visibility: hidden; display: none;"
                 >
-                    <img
-                        class="goup-image"
-                        src={landing.src}
-                        alt="go up landing page"
-                    />
-                    <img
-                        class="goup-image"
-                        src={services.src}
-                        alt="go up services page"
-                    />
-                    <img
-                        class="goup-image"
-                        src={analytics.src}
-                        alt="go up analytics page"
-                    />
-                    <img
-                        class="goup-image"
-                        src={settings.src}
-                        alt="go up settings page"
-                    />
+                    {images.map((img) => (
+                        <Image
+                            class="goup-image"
+                            src={img.image}
+                            alt={img.alt}
+                            quality="high"
+                        />
+                    ))}
                 </div>
                 <a
                     class="goup-source-link"
                     href="https://github.com/TeejMcSteez/goUp"
                     target="_blank"
-                    rel="noopener noreferrer">View source on GitHub &rarr;</a
+                    rel="noopener noreferrer"
                 >
+                    View source on GitHub &rarr;
+                </a>
             </div>
-            <a class="goup-back-button" href="/">Back</a>
+            <a class="goup-back-button" href="/">
+                Back
+            </a>
         </div>
     </div>
 </Layout>

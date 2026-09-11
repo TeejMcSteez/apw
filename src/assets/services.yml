@@ -1,0 +1,57 @@
+db_path: "./database.db"
+db_max_size: "1gb"
+persist_db: true
+
+services:
+  home_assistant:
+    url: "https://ha.example.com/"
+    description: "Home automation hub"
+    api_url: "https://ha.example.com/api/"
+    api_key: "<token>"
+    valid_responses: ["200", "201"]
+    retry: 2
+    active: null # Can be true or null for active monitoring
+
+  truenas:
+    url: "http://nas.example.com/"
+    description: "NAS storage"
+    active: false # Skips fetching data until changed to true or null
+
+  streamer:
+    url: "https://streamer.example.com:8080/"
+    description: "Internal service with a self-signed cert"
+    skip_insecure: true # Skips TLS certificate verification for this service only
+
+triggers:
+  backoff: "30m"
+  mqtt:
+    mqtt_broker: "mqtt://broker.example.com"
+    mqtt_user: "<user>"
+    mqtt_key: "<password>"
+  webhook:
+    webhook_url: "https://hooks.example.com/alert"
+    webhook_key: "Bearer <token>"
+    custom_message: '{ "source": "goUp" }'
+    backoff: "5m" # overrides the global 30m backoff for this trigger only
+  smtp:
+    smtp_server: "smtp.gmail.com:587"
+    email: "you@gmail.com"
+    app_password: "<app-password>"
+  gotify:
+    gotify_server: "https://gotify.example.com"
+    gotify_app_token: "<token>"
+    gotify_title: "GoUp Alert"
+    gotify_priority: 5
+  slack:
+    slack_token: "xoxb-<token>"
+    slack_channel: "C1234567890"
+    username: "GoUp Bot"
+  telegram:
+    telegram_token: "<bot-token>"
+    telegram_channel_id: "@channelname"
+  home_assistant:
+    ha_url: "http://homeassistant.local:8123"
+    ha_token: "<long-lived-access-token>"
+  discord:
+    discord_auth: "Bot <token>"
+    discord_channel_id: "123456789012345678"
