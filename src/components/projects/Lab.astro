@@ -1,5 +1,95 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+const services = [
+    {
+        name: "Home Assistant",
+        link: "https://www.home-assistant.io/",
+    },
+    {
+        name: "Headscale",
+        link: "https://headscale.net/stable/",
+    },
+    {
+        name: "Debian Samba VM",
+        link: "https://wiki.debian.org/Samba/ServerSimple",
+    },
+    {
+        name: "NGINX",
+        link: "https://nginx.org/",
+    },
+    {
+        name: "Fail2ban",
+        link: "https://github.com/fail2ban/fail2ban",
+    },
+    {
+        name: "AdGuard Home",
+        link: "https://github.com/AdguardTeam/AdGuardHome",
+    },
+    {
+        name: "Frigate",
+        link: "https://frigate.video/",
+    },
+    {
+        name: "GoUp",
+        link: "https://github.com/TeejMcSteez/goUp",
+    },
+    {
+        name: "Jellyfin",
+        link: "https://jellyfin.org/",
+    },
+    {
+        name: "Jellyseer",
+        link: "https://docs.seerr.dev/",
+    },
+    {
+        name: "Prowlarr",
+        link: "https://prowlarr.com/",
+    },
+    {
+        name: "Radarr",
+        link: "https://radarr.video/",
+    },
+    {
+        name: "Sonarr",
+        link: "https://sonarr.tv/",
+    },
+    {
+        name: "qBittorrent",
+        link: "https://www.qbittorrent.org/",
+    },
+    {
+        name: "Minecraft ATM11 Server",
+        link: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-11",
+    },
+    {
+        name: "Node-RED",
+        link: "https://nodered.org/",
+    },
+    {
+        name: "Grafana",
+        link: "https://grafana.com/",
+    },
+    {
+        name: "Tempo",
+        link: "https://grafana.com/docs/tempo/latest/",
+    },
+    {
+        name: "Mimir",
+        link: "https://grafana.com/oss/mimir/",
+    },
+    {
+        name: "Loki",
+        link: "https://github.com/grafana/loki",
+    },
+    {
+        name: "Otel-Collector",
+        link: "https://opentelemetry.io/",
+    },
+    {
+        name: "CVAT",
+        link: "https://www.cvat.ai/",
+    },
+];
 ---
 
 <Layout>
@@ -12,165 +102,17 @@ import Layout from "../../layouts/Layout.astro";
 
                 <div class="homelab-list-container">
                     <ul class="homelab-list">
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://www.home-assistant.io/"
-                                >Home Assistant</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://headscale.net/stable/"
-                                >Headscale</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://wiki.debian.org/Samba/ServerSimple"
-                                >Debian Samba VM</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://nginx.org/">NGINX</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://github.com/fail2ban/fail2ban"
-                                >Fail2ban</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://github.com/AdguardTeam/AdGuardHome"
-                                >AdGuard Home</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://frigate.video/">Frigate</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://github.com/TeejMcSteez/goUp"
-                                >GoUp</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://github.com/grafana/loki">Loki</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://opentelemetry.io/"
-                                >Otel-Collector</a
-                            >
-                        </li>
-                    </ul>
-                    <ul class="homelab-list">
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://jellyfin.org/">Jellyfin</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://docs.seerr.dev/">Jellyseer</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://prowlarr.com/">Prowlarr</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://radarr.video/">Radarr</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://sonarr.tv/">Sonarr</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://www.qbittorrent.org/"
-                                >qBittorrent</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-11"
-                                >Minecraft ATM11 Server</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://nodered.org/">Node-RED</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://grafana.com/">Grafana</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://grafana.com/docs/tempo/latest/"
-                                >Tempo</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class="homelab-link"
-                                target="_blank"
-                                href="https://grafana.com/oss/mimir/">Mimir</a
-                            >
-                        </li>
+                        {services.map((service) => (
+                            <li>
+                                <a
+                                    class="homelab-link"
+                                    target="_blank"
+                                    href={service.link}
+                                >
+                                    {service.name}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
 
@@ -188,10 +130,10 @@ import Layout from "../../layouts/Layout.astro";
                     Proxmox Backup Server connected via Tailscale controlled
                     with my Headscale control plane
                 </p>
-                <small
-                    >Offsite server location is at my Grandfather's house in my
-                    old room</small
-                >
+                <small>
+                    Offsite server location is at my Grandfather's house in my
+                    old room
+                </small>
                 <p class="homelab-description">
                     Their is an issue such that if Headscale is not up and
                     running I cannot access the server but for security reasons
@@ -215,68 +157,87 @@ import Layout from "../../layouts/Layout.astro";
                         </thead>
                         <tbody>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >ASUS Z790-V Prime AX</td
-                                >
+                                <td class="homelab-table-cell">
+                                    ASUS Z790-V Prime AX
+                                </td>
                                 <td class="homelab-table-cell">Motherboard</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >Intel Core i5-12400 (6-Core/12-Thread)</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Intel Core i5-12400 (6-Core/12-Thread)
+                                </td>
                                 <td class="homelab-table-cell">CPU</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >Corsair Vengeance DDR5 6000mhz
-                                    (128GB@4000mhz)</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Corsair Vengeance DDR5 6000mhz
+                                    (128GB@4000mhz)
+                                </td>
                                 <td class="homelab-table-cell">RAM</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >Samsung 970 EVO Plus (2TB)</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Samsung 970 EVO Plus (2TB)
+                                </td>
                                 <td class="homelab-table-cell">Boot Drive</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >SATA Solid State Drive (1TB)</td
-                                >
+                                <td class="homelab-table-cell">
+                                    SATA Solid State Drive (1TB)
+                                </td>
                                 <td class="homelab-table-cell">SSD</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >Hard Drive (2TB)</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Hard Drive (2TB)
+                                </td>
                                 <td class="homelab-table-cell">HDD</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >Corsair RM750 750 Watt 80 Plus Gold</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Hard Drive (1TB)
+                                </td>
+                                <td class="homelab-table-cell">HDD</td>
+                            </tr>
+                            <tr class="homelab-table-row">
+                                <td class="homelab-table-cell">
+                                    Hard Drive (1TB)
+                                </td>
+                                <td class="homelab-table-cell">HDD</td>
+                            </tr>
+                            <tr class="homelab-table-row">
+                                <td class="homelab-table-cell">
+                                    Corsair RM750 750 Watt 80 Plus Gold
+                                </td>
                                 <td class="homelab-table-cell">PSU</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >NVIDIA 4070 Ti Super</td
-                                >
+                                <td class="homelab-table-cell">
+                                    NVIDIA 4070 Ti Super
+                                </td>
                                 <td class="homelab-table-cell">GPU (AI)</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >Dresden Elektronik Phoscon ConBee 3</td
-                                >
-                                <td class="homelab-table-cell"
-                                    >Zigbee Controller</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Dresden Elektronik Phoscon ConBee 3
+                                </td>
+                                <td class="homelab-table-cell">
+                                    Zigbee Controller
+                                </td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell">Zooz ZST39 LR</td
-                                >
-                                <td class="homelab-table-cell"
-                                    >Z-Wave Controller</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Zooz ZST39 LR
+                                </td>
+                                <td class="homelab-table-cell">
+                                    Z-Wave Controller
+                                </td>
+                            </tr>
+                            <tr class="homelab-table-row">
+                                <td class="homelab-table-cell">
+                                    Cyberpower SL700U
+                                </td>
+                                <td class="homelab-table-cell">Standby UPS</td>
                             </tr>
                         </tbody>
                     </table>
@@ -295,9 +256,9 @@ import Layout from "../../layouts/Layout.astro";
                         </thead>
                         <tbody>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >ASUS Prime B365M-A</td
-                                >
+                                <td class="homelab-table-cell">
+                                    ASUS Prime B365M-A
+                                </td>
                                 <td class="homelab-table-cell">Motherboard</td>
                             </tr>
                             <tr class="homelab-table-row">
@@ -305,27 +266,29 @@ import Layout from "../../layouts/Layout.astro";
                                 <td class="homelab-table-cell">CPU</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >Corsair Vengeance LPX (32GB DDR4@3200mhz)</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Corsair Vengeance LPX (32GB DDR4@3200mhz)
+                                </td>
                                 <td class="homelab-table-cell">RAM</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >WD Black 1TB NVME M.2 SSD</td
-                                >
+                                <td class="homelab-table-cell">
+                                    WD Black 1TB NVME M.2 SSD
+                                </td>
                                 <td class="homelab-table-cell">Boot Drive</td>
                             </tr>
                             <tr class="homelab-table-row">
-                                <td class="homelab-table-cell"
-                                    >Seagate 3.5" 5400RPM 8TB HDD</td
-                                >
+                                <td class="homelab-table-cell">
+                                    Seagate 3.5" 5400RPM 8TB HDD
+                                </td>
                                 <td class="homelab-table-cell">Mass Storage</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <a class="homelab-back-button" href="/">Back</a>
+                <a class="homelab-back-button" href="/">
+                    Back
+                </a>
             </div>
         </div>
     </div>
@@ -371,9 +334,11 @@ import Layout from "../../layouts/Layout.astro";
     }
 
     .homelab-list {
+        columns: 2;
+        column-fill: balance;
         margin: 1.25rem; /* m-5 */
         list-style-type: disc;
-        list-style-position: inside;
+        list-style-position: outside;
     }
 
     .homelab-list li {
