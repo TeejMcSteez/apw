@@ -112,6 +112,7 @@ const images = metadata.map((data) => {
         const images = document.getElementById("goup-images");
         const button = document.getElementById("openImagesButton");
         if (images?.style.visibility == "hidden") {
+            window.posthog?.capture("goup_gallery_opened");
             images.style.visibility = "visible";
             images.style.display = "flex";
             images.style.flexDirection = "column";

@@ -1,19 +1,29 @@
 <div class="container">
     <h3>Contact</h3>
     <div id="links">
-        <a href="https://github.com/TeejMcSteez" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/tommyhall047/" target="_blank"
+        <a href="https://github.com/TeejMcSteez" target="_blank" data-platform="github">GitHub</a>
+        <a href="https://www.linkedin.com/in/tommyhall047/" target="_blank" data-platform="linkedin"
             >LinkedIn</a
         >
         <a
             href="https://bsky.app/profile/teejmcsteez.bsky.social"
-            target="_blank">Bluesky</a
+            target="_blank" data-platform="bluesky">Bluesky</a
         >
-        <a href="https://www.instagram.com/tj_hall04/" target="_blank"
+        <a href="https://www.instagram.com/tj_hall04/" target="_blank" data-platform="instagram"
             >Instagram</a
         >
     </div>
 </div>
+
+<script is:inline>
+    document.querySelectorAll("#links a").forEach((link) => {
+        link.addEventListener("click", () => {
+            window.posthog?.capture("contact_link_opened", {
+                platform: link.dataset.platform,
+            });
+        });
+    });
+</script>
 
 <style>
     .container {

@@ -1,13 +1,23 @@
 <div class="container">
     <h3>Projects</h3>
     <div id="projectLinks">
-        <a href="/projects/homelab/index.html">Homelab</a>
-        <a href="/projects/salon/index.html">Salon Website</a>
-        <a href="/projects/ha/index.html">WebRTC Monkeypatch</a>
-        <a href="/projects/monitor/index.html">GoUp Server Monitor</a>
-        <a href="/projects/model/index.html">YOLO Fine Tuning</a>
+        <a href="/projects/homelab/index.html" data-project="homelab">Homelab</a>
+        <a href="/projects/salon/index.html" data-project="salon">Salon Website</a>
+        <a href="/projects/ha/index.html" data-project="webrtc_monkeypatch">WebRTC Monkeypatch</a>
+        <a href="/projects/monitor/index.html" data-project="goup_server_monitor">GoUp Server Monitor</a>
+        <a href="/projects/model/index.html" data-project="yolo_fine_tuning">YOLO Fine Tuning</a>
     </div>
 </div>
+
+<script is:inline>
+    document.querySelectorAll("#projectLinks a").forEach((link) => {
+        link.addEventListener("click", () => {
+            window.posthog?.capture("project_opened", {
+                project: link.dataset.project,
+            });
+        });
+    });
+</script>
 
 <style>
     .container {
