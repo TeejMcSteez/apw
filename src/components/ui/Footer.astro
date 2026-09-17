@@ -23,6 +23,12 @@ import InfoIcon from "../../assets/Contact.svg";
     </p>
 </div>
 
+<script is:inline>
+    document.querySelector("#icons a")?.addEventListener("click", () => {
+        window.posthog?.capture("email_contact_started");
+    });
+</script>
+
 <style>
     #footer {
         display: flex;

@@ -31,6 +31,12 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 </Layout>
 
+<script is:inline>
+    document.querySelector(".salon-site-link")?.addEventListener("click", () => {
+        window.posthog?.capture("salon_live_site_opened");
+    });
+</script>
+
 <style>
     .salon-container {
         max-width: 48rem; /* max-w-3xl */

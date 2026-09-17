@@ -1,0 +1,37 @@
+---
+// Browser-only PostHog initialization shared by every page through Layout.astro.
+---
+<script>
+    import posthog from "posthog-js";
+
+    declare global {
+        interface Window {
+            posthog: typeof posthog;
+        }
+    }
+
+    const apiKey = import.meta.env.PUBLIC_POSTHOG_PROJECT_TOKEN;
+    const apiHost = import.meta.env.PUBLIC_POSTHOG_HOST;
+    const isDevelopment = import.meta.env.DEV;
+
+    if (!apiKey) {
+        if (isDevelopment) {
+            throw new Error('PUBLIC_POSTHOG_PROJECT_TOKEN variable required by PostHog is missing or un-configured, this causes events to be silently missed. This error stops appearing once PUBLIC_POSTHOG_PROJECT_TOKEN is configured');
+        }
+    } else if (!apiHost) {
+        if (isDevelopment) {
+            throw new Error('PUBLIC_POSTHOG_HOST variable required by PostHog is missing or un-configured, this causes events to be silently missed. This error stops appearing once PUBLIC_POSTHOG_HOST is configured');
+        }
+    } else {
+        posthog.init(apiKey, {
+            api_host: apiHost,
+            defaults: '2026-01-30',
+            capture_exceptions: {
+                capture_unhandled_errors: true,
+                capture_unhandled_rejections: true,
+                capture_console_errors: false,
+            },
+        });
+        window.posthog = posthog;
+    }
+</script>
