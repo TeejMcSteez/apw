@@ -9,6 +9,11 @@ import Navbar from "./ui/Navbar.astro";
     <p class="privacy-text">
         This site uses a cookie to track the number of times a user has returned
         home to change the sub-text animation in the about sub-text.
+        <br /> This website also uses <a href="https://posthog.com/">
+            Posthog
+        </a>{" "}
+        for website analytics, therefore, any cookies they use will also be
+        contained in this site.
     </p>
 </Layout>
 
@@ -17,5 +22,15 @@ import Navbar from "./ui/Navbar.astro";
         margin-top: 1rem;
         padding-top: 1rem;
         padding-left: 1rem;
+    }
+
+    .privacy-text a {
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        text-decoration: underline;
+    }
+    .privacy-text a:hover {
+        color: #0000ff;
     }
 </style>
