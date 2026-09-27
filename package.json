@@ -10,8 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "astro": "^7.3.3",
-    "posthog-js": "^1.433.3",
+    "astro": "^7.2.1",
+    "posthog-js": "^1.434.5",
     "sharp": "^0.35.4"
   },
   "devDependencies": {
