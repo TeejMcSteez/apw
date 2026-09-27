@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "astro": "^7.2.1",
-    "posthog-js": "^1.433.3",
+    "posthog-js": "^1.434.5",
     "sharp": "^0.35.4"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.67.0",
     "@typescript-eslint/parser": "^8.67.0",
-    "eslint": "^10.8.1",
-    "eslint-plugin-astro": "^3.2.1"
+    "eslint": "^10.11.0",
+    "eslint-plugin-astro": "^3.1.0"
   }
 }
