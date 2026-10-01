@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/ui/Navbar.astro";
+---
+
+<Layout>
+    <Navbar />
+    <h1>Services</h1>
+    <div>
+        <p class="services-text">
+            I build websites for small to medium sized businesses focusing on
+            compatibility with mobile and desktop, performance, and ensuring the
+            clients needs are met.
+        </p>
+        <p class="services-text">
+            I handle hosting, maintenance, and updates along with the build of
+            websites for clients. Please{" "}
+            <a href="mailto:contact@teejmcsteez.tech">contact me</a> for more
+            information!
+        </p>
+    </div>
+</Layout>
+
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .services-text {
+        align-items: center;
+        margin: 1rem 2rem;
+    }
+
+    .services-text a {
+        text-decoration: underline;
+        color: white;
+    }
+
+    @media (prefers-color-scheme: light) {
+        .services-text a {
+            color: black;
+        }
+    }
+
+    .services-text a:hover {
+        color: blue;
+    }
+</style>

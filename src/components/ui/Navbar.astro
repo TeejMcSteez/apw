@@ -1,9 +1,13 @@
 ---
-
 ---
 
 <nav id="nav">
-    <a href="/" id="site-name">Tommy Hall</a>
+    <a href="/" id="site-name">
+        Tommy Hall
+    </a>
+    <a href="/services" id="services-link">
+        Services
+    </a>
 </nav>
 
 <script is:inline>
@@ -26,12 +30,18 @@
             }
         }, 50);
     }
+    if (window.location.pathname == "/services") {
+        document.getElementById("services-link").style.display = "none";
+    } else {
+        document.getElementById("services-link").style.display = "flex";
+    }
 </script>
 
 <style>
     #nav {
         display: flex;
-        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
         padding: 1.25rem 1.75rem;
         border-bottom: 1px solid rgba(128, 128, 128, 0.15);
     }
@@ -47,6 +57,17 @@
     }
     #site-name:hover {
         opacity: 0.6;
+    }
+
+    #services-link {
+        text-align: end;
+        text-decoration: underline;
+        color: black;
+        font-size: large;
+    }
+
+    #services-link:hover {
+        color: blue;
     }
     @media (prefers-color-scheme: dark) {
         #site-name {
