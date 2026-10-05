@@ -3,21 +3,65 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/ui/Navbar.astro";
 ---
 
+<!-- TODO: Add Posthog analytics to events -->
+
 <Layout>
     <Navbar />
     <h1>Services</h1>
-    <div>
+    <div id="service-hero">
         <p class="services-text">
-            I build websites for small to medium sized businesses focusing on
-            compatibility with mobile and desktop, performance, and ensuring the
-            clients needs are met.
-        </p>
-        <p class="services-text">
-            I handle hosting, maintenance, and updates along with the build of
-            websites for clients. Please{" "}
+            I build websites for small-to-medium sized businesses, focusing on
+            mobile and desktop compatibility, performance, and making sure each
+            client's needs are met. Along with building the website, I also
+            handle hosting, maintenance, and updates. Please{" "}
             <a href="mailto:contact@teejmcsteez.tech">contact me</a> for more
             information!
         </p>
+    </div>
+
+    <h2 id="portfolio-header">Portfolio</h2>
+    <div class="portfolio-item">
+        <h2>Salon Website</h2>
+        <p>
+            The client was tired of constantly answering messages about their
+            prices and services, and wanted a place to show their portfolio
+            without sending individual pictures. Initially, the client started
+            with Acuity Scheduling through its Squarespace integration. However,
+            the client did not enjoy setting up the system or how it worked, so
+            we decided to remove it and continue with their normal means of
+            communication. The website has now been in operation for over a
+            year.
+        </p>
+        <div class="iframe-wrapper">
+            <iframe
+                class="website-iframe"
+                title="Salon Website"
+                src="https://www.maryheathermelton.com/"
+            ></iframe>
+        </div>
+        <a class="portfolio-link" href="https://maryheathermelton.com/">
+            View Here
+        </a>
+    </div>
+    <div class="portfolio-item">
+        <h2>Home Improvement Website</h2>
+        <p>
+            The client wanted a website to show their portfolio to customers and
+            advertise their services, while also improving their presence in
+            Google search results for people looking for local home improvement.
+            I built and maintain the current website, using Google Analytics and
+            Vercel Analytics to improve SEO and reduce the bounce rate.
+        </p>
+        <div class="iframe-wrapper">
+            <iframe
+                src="https://meltonshomes.com"
+                title="Meltons Home Improvement LLC"
+                class="website-iframe"
+            ></iframe>
+        </div>
+        <a href="https://meltonshomes.com" class="portfolio-link">
+            View Here
+        </a>
     </div>
 </Layout>
 
@@ -26,9 +70,16 @@ import Navbar from "../components/ui/Navbar.astro";
         text-align: center;
     }
 
-    .services-text {
+    #service-hero {
+        display: flex;
+        flex-direction: column;
         align-items: center;
+        justify-items: center;
+    }
+
+    .services-text {
         margin: 1rem 2rem;
+        max-width: 64rem;
     }
 
     .services-text a {
@@ -36,8 +87,51 @@ import Navbar from "../components/ui/Navbar.astro";
         color: white;
     }
 
+    #portfolio-header {
+        align-items: center;
+        text-align: center;
+    }
+
+    .portfolio-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .portfolio-item p {
+        max-width: 64rem;
+        margin-bottom: 3rem;
+    }
+
+    .iframe-wrapper {
+        width: 100%;
+        max-width: 80rem;
+    }
+
+    .website-iframe {
+        border: none;
+        width: 100%;
+        height: 30rem;
+    }
+
+    .portfolio-link {
+        text-decoration: underline;
+        color: white;
+    }
+
+    .portfolio-link:hover {
+        color: blue;
+    }
+
     @media (prefers-color-scheme: light) {
         .services-text a {
+            color: black;
+        }
+
+        .portfolio-link {
             color: black;
         }
     }
