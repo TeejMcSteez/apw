@@ -10,14 +10,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "astro": "^7.2.1",
-    "posthog-js": "^1.436.1",
-    "sharp": "^0.35.4"
+    "astro": "^7.3.6",
+    "posthog-js": "^1.438.2",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/eslint-plugin": "^8.71.1",
     "@typescript-eslint/parser": "^8.71.1",
     "eslint": "^10.12.0",
-    "eslint-plugin-astro": "^3.1.0"
+    "eslint-plugin-astro": "^3.2.1"
   }
 }
