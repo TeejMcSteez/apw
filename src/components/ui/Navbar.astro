@@ -30,7 +30,12 @@
             }
         }, 50);
     }
-    if (window.location.pathname == "/services") {
+    // On server return path is /services/ breaking the strict match
+    // Could use regex but this is simpler
+    if (
+        window.location.pathname == "/services" ||
+        window.location.pathname == "/services/"
+    ) {
         document.getElementById("services-link").style.display = "none";
     } else {
         document.getElementById("services-link").style.display = "flex";
