@@ -87,7 +87,11 @@ const images = metadata.map((data) => {
                             class="goup-image"
                             src={img.image}
                             alt={img.alt}
-                            quality="high"
+                            format="png"
+                            widths={[768, 1536, img.image.width].filter(
+                                (w) => w <= img.image.width,
+                            )}
+                            sizes="(max-width: 48rem) 100vw, 46rem"
                         />
                     ))}
                 </div>
@@ -236,6 +240,8 @@ const images = metadata.map((data) => {
 
     .goup-image {
         width: 100%;
+        height: auto;
+        object-fit: contain;
         border-radius: 0.5rem;
         margin-top: 0.75rem;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
