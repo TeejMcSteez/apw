@@ -34,7 +34,8 @@
     // Could use regex but this is simpler
     if (
         window.location.pathname == "/services" ||
-        window.location.pathname == "/services/"
+        window.location.pathname == "/services/" ||
+        window.location.pathname != "/"
     ) {
         document.getElementById("services-link").style.display = "none";
     } else {
