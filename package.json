@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "astro": "^7.4.1",
-    "posthog-js": "^1.438.13",
+    "posthog-js": "^1.438.23",
     "sharp": "^0.35.5"
   },
   "devDependencies": {
