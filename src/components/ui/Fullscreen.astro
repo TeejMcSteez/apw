@@ -1,0 +1,84 @@
+---
+/**
+ * Fullscreen image viewer.
+ *
+ * Include this component once per page, then add the `data-fullscreen`
+ * attribute to any <img> (or Astro <Image />) that should open fullscreen
+ * on click. Any click (or Escape) closes the viewer.
+ */
+---
+
+<div id="fullscreen-viewer" class="fullscreen-viewer" hidden>
+    <img id="fullscreen-viewer-img" class="fullscreen-viewer-img" alt="" />
+</div>
+
+<script>
+    const viewer = document.getElementById("fullscreen-viewer");
+    const viewerImg = document.getElementById(
+        "fullscreen-viewer-img",
+    ) as HTMLImageElement | null;
+
+    function open(source: HTMLImageElement) {
+        if (!viewer || !viewerImg) return;
+        // Reuse the responsive sources but ask for a full-viewport size
+        viewerImg.src = source.currentSrc || source.src;
+        if (source.srcset) {
+            viewerImg.srcset = source.srcset;
+            viewerImg.sizes = "100vw";
+        } else {
+            viewerImg.removeAttribute("srcset");
+            viewerImg.removeAttribute("sizes");
+        }
+        viewerImg.alt = source.alt;
+        viewer.hidden = false;
+        document.body.style.overflow = "hidden";
+    }
+
+    function close() {
+        if (!viewer || viewer.hidden) return;
+        viewer.hidden = true;
+        document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", (e) => {
+        if (viewer && !viewer.hidden) {
+            close();
+            return;
+        }
+        const target = (e.target as HTMLElement | null)?.closest(
+            "img[data-fullscreen]",
+        );
+        if (target) open(target as HTMLImageElement);
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") close();
+    });
+</script>
+
+<style>
+    .fullscreen-viewer {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.9);
+        cursor: zoom-out;
+    }
+
+    .fullscreen-viewer[hidden] {
+        display: none;
+    }
+
+    .fullscreen-viewer-img {
+        max-width: 100vw;
+        max-height: 100vh;
+        object-fit: contain;
+    }
+
+    :global(img[data-fullscreen]) {
+        cursor: zoom-in;
+    }
+</style>
