@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import example_yaml from "../../assets/services.yml?raw";
 import { Image } from "astro:assets";
+import Fullscreen from "../ui/Fullscreen.astro";
 // import { images } from "../../lib/goup.ts";
 const metadata = Object.values(
     import.meta.glob<ImageMetadata>("../../assets/*.png", {
@@ -85,6 +86,7 @@ const images = metadata.map((data) => {
                     {images.map((img) => (
                         <Image
                             class="goup-image"
+                            data-fullscreen
                             src={img.image}
                             alt={img.alt}
                             format="png"
@@ -109,6 +111,7 @@ const images = metadata.map((data) => {
             </a>
         </div>
     </div>
+    <Fullscreen />
 </Layout>
 
 <script>
