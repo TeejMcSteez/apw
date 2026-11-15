@@ -1,6 +1,7 @@
 ---
-import PostHog from '../components/posthog.astro';
+import PostHog from "../components/posthog.astro";
 ---
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -9,7 +10,7 @@ import PostHog from '../components/posthog.astro';
         <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
         <title>Tommy Hall's Website</title>
-        <PostHog />
+        {import.meta.env.PROD && <PostHog />}
     </head>
     <body>
         <slot />
